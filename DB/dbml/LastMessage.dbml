@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Class="LastMessageDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=COPYCAT\MSSQLSERVER2012;Initial Catalog=LastMessage;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="LastMessageDbConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="User" Member="Users">
+    <Type Name="User">
+      <Column Name="ID" Type="System.Int32" DbType="int" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Status" Type="System.String" DbType="varchar(16)" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="varchar(64)" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="nvarchar(32)" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="nvarchar(128)" CanBeNull="false" />
+    </Type>
+  </Table>
+</Database>
