@@ -5,18 +5,16 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+using System.Web.Security; // FormsAuthentication
+
 namespace LastMessage
 {
-    public partial class _default : System.Web.UI.Page
+    public partial class Logout : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(HttpContext.Current.User.Identity.IsAuthenticated)
-            {
-                Response.Redirect("Home.aspx");
-            }
+            FormsAuthentication.SignOut();
+            Response.Redirect(".");
         }
     }
-
-
 }

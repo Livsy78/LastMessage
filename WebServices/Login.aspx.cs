@@ -41,19 +41,25 @@ namespace LastMessage.WebServices
             if(user==null)
             {
                 output.Status = "E-Mail not found";
+                output.FocusControlID = "editEmail_Login";
+                return output;
             }
 
             if(input.Password != user.Password)
             {
                 output.Status = "Invalid password";
+                output.FocusControlID = "editPassword_Login";
+                return output;
             }
             
             //if( !(user.Status == DB.UserStatus.ACTIVE || user.Status == DB.UserStatus.VIP || user.Status == DB.UserStatus.ADMIN) )
             if(user.Status == DB.UserStatus.DISABLED)
             {
-                output.Status = "Disabled user";
+                output.Status = string.Format("User is disabled, contact me");
+                return output;
             }
                 
+            // everything is OK, sign me in
             if(output.Status=="OK")
             {
                 FormsAuthentication.SetAuthCookie(user.Email, input.doRememberMe);
@@ -74,5 +80,6 @@ namespace LastMessage.WebServices
     public class Login_Output
     {
         public string Status {get;set;}
+        public string FocusControlID {get;set;}
     }
 }

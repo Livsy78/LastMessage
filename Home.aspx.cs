@@ -7,16 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace LastMessage
 {
-    public partial class _default : System.Web.UI.Page
+    public partial class Home : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(HttpContext.Current.User.Identity.IsAuthenticated)
-            {
-                Response.Redirect("Home.aspx");
-            }
+
         }
     }
-
-
 }

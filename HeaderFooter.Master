@@ -42,7 +42,13 @@
 
 <!-- HEADER START -->
     <div class="pltbg-0" style="margin:auto; height:30px;">
+        <a href="." class="navbar-link plt-1 ml-3"> HOME </a>
         
+        <div style="float:right; display:<%=HttpContext.Current.User.Identity.IsAuthenticated?"block":"none"%>; ">
+            <a href="EditAccount.aspx" id="Header_btnEditAccount" class="navbar-link plt-1" > My Profile </a>
+            <div class="plt-1" style="display:inline;" > &nbsp; | &nbsp; </div>
+            <a href="Logout.aspx" id="Header_btnLogout" class="navbar-link plt-1 mr-3"> Sign Out </a>
+        </div>
     </div>
 <!-- HEADER END -->
 
@@ -54,8 +60,8 @@
 
 <!-- FOOTER START -->
     <div class="pltbg-0" style="margin:auto; height:30px;   display:flex; justify-content:space-evenly;">
-        <a href="#" class="navbar-link plt-1"> About us </a>
-        <a href="#" class="navbar-link plt-1"> Contact us </a>
+        <a href="#" class="navbar-link plt-1"> About me </a>
+        <a href="#" class="navbar-link plt-1"> Contact me </a>
         <a href="#" class="navbar-link plt-1"> Privacy policy </a>
         <a href="#" class="navbar-link plt-1"> Terms of use </a>
     </div>

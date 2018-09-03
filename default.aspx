@@ -2,8 +2,8 @@
 
 <asp:Content ID="head" runat="server" ContentPlaceHolderID="head">
 
-
 </asp:Content>
+
 
 <asp:Content ID="Content1" runat="server" ContentPlaceHolderID="ContentPlaceHolder">
 
@@ -35,7 +35,8 @@
                         <img src="img/dot.png"/>
                     </td>
                     <td>
-                        To reset timers for all your messages just visit this site and press big main button "I'M SAFE" any time BEFO
+                        To reset timers for all your messages just visit this site and press big main button "I'M SAFE" any time BEFORE timeout will expire.
+                        <br/>
                         Visit this site any time BEFORE timeout will expire, and press big main button "I'M SAFE" to reset timers for all your messages.
                         <br/>
                         <i>Note:</i> You will get notification about timeout going to be expired
@@ -56,7 +57,8 @@
 
         <h5 class="mt-4"> So it's time to </h5>
 
-        <form id="RegisterForm" style="text-align:center;">
+        <!-- Register form -->
+        <form id="RegisterForm" style="text-align:center;" onsubmit="RegisterForm_OnSubmit(); return false;">
             <h5>Sign Up</h5>
             <input type="email" id="editEmail_Register" class="form-control mb-1" placeholder="Email address" required />
             <input type="text" id="Name" class="form-control mb-1" placeholder="Name" required />
@@ -64,7 +66,7 @@
             <input type="password" id="editPasswordConfirm_Register" class="form-control mb-1" placeholder="Confirm password" required />
             <div class="checkbox mt-1">
                 <label>
-                    <input type="checkbox" id="editRememberMe_Register" value="remember-me" checked="checked" /> Remember me
+                    <input type="checkbox" id="cbRememberMe_Register" checked="checked" /> Remember me
                 </label>
             </div>
             <button type="submit" class="btn btn-lg plt-1 pltbg-3 btn-block mb-3">Sign Up</button>
@@ -79,23 +81,30 @@
                     $("#RegisterForm").hide();
                     $("#LoginForm").show();
                 }
-            </script>
 
-            <br/><br/>
-            <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label>
+                function RegisterForm_OnSubmit()
+                {
+
+                }
+            </script>
 
         </form>
 
-        <form id="LoginForm" style="text-align:center; display:none;">
+        <!-- Login form -->
+        <form id="LoginForm" style="text-align:center; display:none;" onsubmit="LoginForm_OnSubmit(); return false;">
             <h5>Sign In</h5>
             <input type="email" id="editEmail_Login" class="form-control mb-1" placeholder="Email address" required autofocus />
             <input type="password" id="editPassword_Login" class="form-control mb-1" placeholder="Password" required />
             <a href="#" class="plt-3" style="float:right; font-size:12px;"> Forgot password? </a>
             <div class="checkbox mt-1">
                 <label>
-                    <input type="checkbox" id="editRememberMe_Login" value="remember-me" checked="checked" /> Remember me
+                    <input type="checkbox" id="cbRememberMe_Login" checked="checked" /> Remember me
                 </label>
             </div>
+
+            <div id="messageLogin" class="mb-1" style="display:none; height:30px; width:100%;         color:white; background-color:red;       ">
+            </div>
+
             <button type="submit" class="btn btn-lg plt-1 pltbg-3 btn-block mb-3">Sign In</button>
 
             Don't have an account?
@@ -107,6 +116,36 @@
                 {
                     $("#LoginForm").hide();
                     $("#RegisterForm").show();
+                }
+
+                function LoginForm_OnSubmit()
+                {
+                    var input = 
+                    {
+                        Email : $("#editEmail_Login").val(),
+                        Password : $("#editPassword_Login").val(),
+                        doRememberMe : $("#cbRememberMe_Login").is(':checked'),  // .prop("checked"),
+                    };
+
+                    $.post("WebServices/Login.aspx", JSON.stringify(input), "json")
+                    .done(function(output) 
+                    {
+                        if(output.Status=="OK")
+                        {
+                            window.location.href="Home.aspx";
+                        }
+                        else
+                        {
+                            $("#messageLogin").text(output.Status).show();
+                            $("#"+output.FocusControlID).focus();
+                        }
+                    })
+                    .fail(function(output) 
+                    {
+                        $("#messageLogin").text("Can't send request, please try again").show();
+                        console.log(output);
+                    })
+                    ;
                 }
             </script>
 
