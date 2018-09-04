@@ -1,0 +1,55 @@
+
+.body 
+{
+    margin:auto;
+    background-color:#EFEFEF;
+    box-shadow: 0 0 6px rgba(0,0,0,0.5); 
+    /* font-size:19px; */
+}
+
+@media (min-width: 800px) 
+{
+    .body 
+    {
+        width:800px;
+    }
+}
+
+
+.navbar-link , .navbar-link-active
+{
+    padding: 5px 0px 5px 0px;
+    text-decoration:none;
+    font-size: 12px;
+}
+
+a.navbar-link:hover, a.navbar-link:active , .navbar-link-active
+{
+    text-decoration:none;
+    color:#E1E4EA;
+}
+
+.error-box
+{
+    display:none; 
+    height:35px; 
+    width:100%; 
+    vertical-align:central; 
+    /*box-shadow: 0 0 3px rgba(0,0,0,0.5);*/
+    border-radius: 4px;
+    color:white; 
+    background-color:red;
+    padding: 4px 0px 0px 0px;
+}
+
+/* More hints for old IE : https://stackoverflow.com/questions/1895476/how-to-style-a-select-dropdown-with-only-css */
+.navbar-dropdown
+{
+   -webkit-appearance: none; 
+   -moz-appearance: none;
+   appearance: none;       /* remove default arrow */
+
+   border:none;
+
+   /*background-image: url(...);   /* add custom arrow */
+}

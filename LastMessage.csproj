@@ -59,8 +59,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\common.css" />
     <Content Include="default.aspx" />
-    <Content Include="HeaderFooter.css" />
     <Content Include="Home.aspx" />
     <Content Include="img\dot.png" />
     <Content Include="img\favicon-16x16.png" />

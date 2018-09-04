@@ -37,8 +37,6 @@
                     <td>
                         To reset timers for all your messages just visit this site and press big main button "I'M SAFE" any time BEFORE timeout will expire.
                         <br/>
-                        Visit this site any time BEFORE timeout will expire, and press big main button "I'M SAFE" to reset timers for all your messages.
-                        <br/>
                         <i>Note:</i> You will get notification about timeout going to be expired
                     </td>
                 </tr>
@@ -61,14 +59,18 @@
         <form id="RegisterForm" style="text-align:center;" onsubmit="RegisterForm_OnSubmit(); return false;">
             <h5>Sign Up</h5>
             <input type="email" id="editEmail_Register" class="form-control mb-1" placeholder="Email address" required />
-            <input type="text" id="Name" class="form-control mb-1" placeholder="Name" required />
+            <input type="text" id="editName_Register" class="form-control mb-1" placeholder="Name" required />
             <input type="password" id="editPassword_Register" class="form-control mb-1" placeholder="Password" required />
-            <input type="password" id="editPasswordConfirm_Register" class="form-control mb-1" placeholder="Confirm password" required />
+            <input type="password" id="editConfirmPassword_Register" class="form-control mb-1" placeholder="Confirm password" required />
             <div class="checkbox mt-1">
                 <label>
                     <input type="checkbox" id="cbRememberMe_Register" checked="checked" /> Remember me
                 </label>
             </div>
+
+            <div id="messageRegister" class="error-box mb-1">
+            </div>
+
             <button type="submit" class="btn btn-lg plt-1 pltbg-3 btn-block mb-3">Sign Up</button>
 
             Already have an account?
@@ -84,7 +86,41 @@
 
                 function RegisterForm_OnSubmit()
                 {
+                    var input = 
+                    {
+                        Email : $("#editEmail_Register").val(),
+                        Name : $("#editName_Register").val(),
+                        Password : $("#editPassword_Register").val(),
+                        ConfirmPassword: $("#editConfirmPassword_Register").val(),
+                        doRememberMe : $("#cbRememberMe_Register").is(':checked'),  // .prop("checked"),
+                    };
 
+                    
+                    // TODO: wait screen
+                    
+                    $.post("WebServices/Register.aspx", JSON.stringify(input), "json")
+                    .done(function(output) 
+                    {
+                        if(output.Status=="OK")
+                        {
+                            window.location.href="Home.aspx";
+                        }
+                        else
+                        {
+                            $("#messageRegister")
+                                .text(output.Status)
+                                .show();
+                            
+                            $("#"+output.FocusID)
+                                .focus();
+                        }
+                    })
+                    .fail(function(output) 
+                    {
+                        $("#messageRegister").text("Can't send request, please try again").show();
+                        console.log(output);
+                    })
+                    ;
                 }
             </script>
 
@@ -102,7 +138,7 @@
                 </label>
             </div>
 
-            <div id="messageLogin" class="mb-1" style="display:none; height:30px; width:100%;         color:white; background-color:red;       ">
+            <div id="messageLogin" class="error-box mb-1">
             </div>
 
             <button type="submit" class="btn btn-lg plt-1 pltbg-3 btn-block mb-3">Sign In</button>
@@ -112,12 +148,14 @@
             <a href="#" class="plt-3" onclick="ShowRegisterForm(); return false;"> Click here to sign up </a>
 
             <script>
+                
                 function ShowRegisterForm()
                 {
                     $("#LoginForm").hide();
                     $("#RegisterForm").show();
                 }
 
+                
                 function LoginForm_OnSubmit()
                 {
                     var input = 
@@ -127,6 +165,9 @@
                         doRememberMe : $("#cbRememberMe_Login").is(':checked'),  // .prop("checked"),
                     };
 
+                    
+                    // TODO: wait screen
+                    
                     $.post("WebServices/Login.aspx", JSON.stringify(input), "json")
                     .done(function(output) 
                     {
@@ -136,8 +177,12 @@
                         }
                         else
                         {
-                            $("#messageLogin").text(output.Status).show();
-                            $("#"+output.FocusControlID).focus();
+                            $("#messageLogin")
+                                .text(output.Status)
+                                .show();
+                            
+                            $("#"+output.FocusID)
+                                .focus();
                         }
                     })
                     .fail(function(output) 

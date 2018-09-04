@@ -29,7 +29,7 @@
     <script src="libs/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
 
 
-    <link href="HeaderFooter.css" rel="stylesheet" />
+    <link href="css/common.css" rel="stylesheet" />
     <link href="css/palette.css" rel="stylesheet" />
 
     <asp:ContentPlaceHolder ID="head" runat="server">
@@ -44,11 +44,19 @@
     <div class="pltbg-0" style="margin:auto; height:30px;">
         <a href="." class="navbar-link plt-1 ml-3"> HOME </a>
         
+
         <div style="float:right; display:<%=HttpContext.Current.User.Identity.IsAuthenticated?"block":"none"%>; ">
+            <div class="plt-1" style="display:inline;" > &nbsp; | &nbsp; </div>
             <a href="EditAccount.aspx" id="Header_btnEditAccount" class="navbar-link plt-1" > My Profile </a>
             <div class="plt-1" style="display:inline;" > &nbsp; | &nbsp; </div>
             <a href="Logout.aspx" id="Header_btnLogout" class="navbar-link plt-1 mr-3"> Sign Out </a>
         </div>
+
+        <select class="navbar-dropdown navbar-link plt-1 pltbg-0 p-1" style="float:right;">
+            <option value="EN" style="background-image:url(img/dot.png);">EN</option> <!-- img FLAG fail..? -->
+            <option value="UA">UA</option>
+        </select>
+
     </div>
 <!-- HEADER END -->
 

@@ -33,7 +33,7 @@ namespace LastMessage.DB
         public static T Get(int id)
         {
             // Как ни старался, по-другому не получается.
-            // Основная проблема - мэппинг пропертей на поля таблицы (Class member is unmapped), так что ID и Get(id) должны быть в конечном классе
+            // Основная проблема - мэппинг пропертей на поля таблицы (Class member is unmapped), так что ID должен быть в конечном классе
             // Получилось через динамический LINQ-запрос, если будет проседать производительность - в конечном классе делаем обычный
             // public static new T Get(int id) {return table.SingleOrDefault(r=> r.ID==id);}
 
