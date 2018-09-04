@@ -23,14 +23,38 @@
         
             <script>
 
-                function RegisterForm_OnSubmit()
+                function PasswordForgotForm_OnSubmit()
                 {
                     var input = 
                     {
                         Email : $("#editEmail_PasswordForgot").val(),
                     };
 
+                    // TODO: wait screen
 
+                    $.post("WebServices/PasswordForgot.aspx", JSON.stringify(input), "json")
+                    .done(function(output) 
+                    {
+                        if(output.Status=="OK")
+                        {
+                            window.location.href="Message.aspx?ID=PasswordEmailSent";
+                        }
+                        else
+                        {
+                            $("#messagePasswordForgot")
+                                .text(output.Status)
+                                .show();
+                            
+                            $("#editEmail_PasswordForgot")
+                                .focus();
+                        }
+                    })
+                    .fail(function(output) 
+                    {
+                        $("#messagePasswordForgot").text("Can't send request, please try again").show();
+                        console.log(output);
+                    })
+                    ;
 
                 }
 

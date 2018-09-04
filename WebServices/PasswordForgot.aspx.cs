@@ -12,13 +12,27 @@ namespace LastMessage.WebServices
 
         public override PasswordForgot_Output GetData(PasswordForgot_Input input)
         {
+            PasswordForgot_Output output = new PasswordForgot_Output()
+            {
+                Status = "OK"
+            };
+
+            DB.User user = DB.User.GetByFieldValue("Email", input.Email);
+            
+            if(user==null)
+            {
+                output.Status = "Email not found";
+                return output;
+            }
             
             
+            if(output.Status=="OK")
+            {
+                // TODO token
+
+            }
             
-            
-            
-            
-            return null;
+            return output;
         }
 
     }

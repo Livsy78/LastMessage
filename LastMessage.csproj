@@ -274,6 +274,7 @@
     <Content Include="libs\popper\umd\popper.min.js" />
     <Content Include="css\palette.css" />
     <Content Include="Logout.aspx" />
+    <Content Include="Message.aspx" />
     <Content Include="PasswordForgot.aspx" />
     <Content Include="Web.config" />
     <Content Include="WebServices\Login.aspx" />
@@ -315,6 +316,18 @@
     </Compile>
     <Compile Include="Logout.aspx.designer.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Message.aspx.cs">
+      <DependentUpon>Message.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Message.aspx.designer.cs">
+      <DependentUpon>Message.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Messages.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Messages.resx</DependentUpon>
     </Compile>
     <Compile Include="PasswordForgot.aspx.cs">
       <DependentUpon>PasswordForgot.aspx</DependentUpon>
@@ -615,6 +628,7 @@
       <LastGenOutput>LastMessage.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="connectionStrings.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -632,6 +646,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="js\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Messages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Messages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
