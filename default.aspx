@@ -131,7 +131,7 @@
             <h5>Sign In</h5>
             <input type="email" id="editEmail_Login" class="form-control mb-1" placeholder="Email address" required autofocus />
             <input type="password" id="editPassword_Login" class="form-control mb-1" placeholder="Password" required />
-            <a href="#" class="plt-3" style="float:right; font-size:12px;"> Forgot password? </a>
+            <a href="PasswordForgot.aspx" class="plt-3" style="float:right; font-size:12px;"> Forgot password? </a>
             <div class="checkbox mt-1">
                 <label>
                     <input type="checkbox" id="cbRememberMe_Login" checked="checked" /> Remember me

@@ -11,25 +11,8 @@ namespace LastMessage.WebServices
 {
     public partial class Login : BaseTemplate<Login_Input, Login_Output>
     {
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            Login_Input input = DeserializePostInput();
-            
-            Login_Output output = new Login_Output();
 
-            if(input==default(Login_Input))
-            {
-                output.Status = "Invalid arguments";
-            }
-            else
-            {
-                output = GetData(input);
-            }
-
-            SerializeOutput(output);
-        }
-
-        public Login_Output GetData(Login_Input input)
+        public override Login_Output GetData(Login_Input input)
         {
             Login_Output output = new Login_Output()
             {
@@ -40,7 +23,7 @@ namespace LastMessage.WebServices
             
             if(user==null)
             {
-                output.Status = "E-Mail not found";
+                output.Status = "Email not found";
                 output.FocusID = "editEmail_Login";
                 return output;
             }
@@ -77,9 +60,8 @@ namespace LastMessage.WebServices
         public bool doRememberMe {get;set;}
     }
 
-    public class Login_Output
+    public class Login_Output : BaseOutput
     {
-        public string Status {get;set;}
         public string FocusID {get;set;}
     }
 }

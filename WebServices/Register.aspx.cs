@@ -11,25 +11,8 @@ namespace LastMessage.WebServices
 {
     public partial class Register : BaseTemplate<Register_Input, Register_Output>
     {
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            Register_Input input = DeserializePostInput();
-            
-            Register_Output output = new Register_Output();
 
-            if(input==default(Register_Input))
-            {
-                output.Status = "Invalid arguments";
-            }
-            else
-            {
-                output = GetData(input);
-            }
-
-            SerializeOutput(output);
-        }
-
-        public Register_Output GetData(Register_Input input)
+        public override Register_Output GetData(Register_Input input)
         {
             Register_Output output = new Register_Output()
             {
@@ -40,7 +23,7 @@ namespace LastMessage.WebServices
 
             if(user!=null)
             {
-                output.Status = "E-Mail already registered";
+                output.Status = "Email already registered";
                 output.FocusID = "editEmail_Register";
                 return output;
             }
@@ -83,9 +66,8 @@ namespace LastMessage.WebServices
         public bool doRememberMe {get;set;}
     }
 
-    public class Register_Output
+    public class Register_Output : BaseOutput
     {
-        public string Status {get;set;}
         public string FocusID {get;set;}
     }
 

@@ -11,8 +11,29 @@ using System.Runtime.Serialization.Json;  // DataContractJsonSerializer
 
 namespace LastMessage.WebServices
 {
-    public class BaseTemplate<TInput, TOutput> : System.Web.UI.Page
+
+    public abstract class BaseTemplate<TInput, TOutput> : System.Web.UI.Page where TOutput : BaseOutput, new()
     {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            TInput input = DeserializePostInput();
+            
+            TOutput output = new TOutput();
+
+            // if(input==default(TInput)) // Operator '==' cannot be applied to operands of type 'TInput' and 'TInput'	// https://stackoverflow.com/questions/8982645/how-to-solve-operator-cannot-be-applied-to-operands-of-type-t-and-t
+            if(EqualityComparer<TInput>.Default.Equals(input, default(TInput)))
+            {
+                output.Status = "Invalid arguments";
+            }
+            else
+            {
+                output = GetData(input);
+            }
+
+            SerializeOutput(output);
+        }
+
+        public abstract TOutput GetData(TInput input);
         
         public TInput DeserializePostInput()
         {
@@ -52,4 +73,10 @@ namespace LastMessage.WebServices
 
         }
     }
+
+    public abstract class BaseOutput
+    {
+        public string Status {get;set;}
+    }
+
 }
