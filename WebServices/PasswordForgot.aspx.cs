@@ -5,6 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+using System.IO; // File
+using System.Configuration; // ConfigurationManager.AppSettings["..."]
+
 namespace LastMessage.WebServices
 {
     public partial class PasswordForgot : BaseTemplate<PasswordForgot_Input, PasswordForgot_Output>
@@ -28,7 +31,35 @@ namespace LastMessage.WebServices
             
             if(output.Status=="OK")
             {
-                // TODO token
+                // create token
+                Guid token = Guid.NewGuid();
+                int expireMinutes = int.Parse(ConfigurationManager.AppSettings["PasswordReset.TokenTimeoutMinutes"]);
+                Cache.Insert("PASSWORD_RESET_TOKEN_"+token.ToString(), user.Email, null, DateTime.Now.AddMinutes(expireMinutes), System.Web.Caching.Cache.NoSlidingExpiration);
+
+                // send email
+                try
+                {
+                    
+                    string emailTemplate = File.ReadAllText(Server.MapPath("PasswordForgot.EmailTemplate"));
+
+                    string link = "http://" /*TODO: SSL?? NO, auto-forced for this page //https:// */ + Request.Url.Host + "/NewPassword.aspx?token="+token.ToString();
+                    string body = string.Format(emailTemplate, user.Name, link, link, expireMinutes, Request.Url.Host);
+
+
+                    Tools.Email.Send(new Tools.Email()  //"support", user.Email, "password recovery", body, "Support");
+                    {
+                        To = user.Email,
+                        From = "noreply@lastmessage.in",
+                        Subject = "[LastMessage.in] Password reset",
+                        Body = body,
+                        ConfigKeyPrefix = "NoReply",
+                    });
+
+                }
+                catch(Exception ex)
+                {
+                    output.Status = "Sending Email failed: " + ex.Message;
+                }
 
             }
             

@@ -24,6 +24,10 @@ namespace LastMessage.Tools
 
         public string ConfigKeyPrefix {get;set;}
 
+        public void Send()
+        {
+            Send(this);
+        }
         
         public static void Send(Email email)
         {
@@ -36,7 +40,7 @@ namespace LastMessage.Tools
             MailAddress from = new MailAddress(smtpLogin, email.From);
             
             string[] tos = email.To.Split(',');
-            MailAddress to = new MailAddress(tos[0]);
+            MailAddress to = new MailAddress(tos[0].Trim());
 
             MailMessage message = new MailMessage(from, to);
 
