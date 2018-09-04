@@ -337,6 +337,7 @@
       <DependentUpon>PasswordForgot.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tools\Email.cs" />
     <Compile Include="WebServices\BaseTemplate.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
