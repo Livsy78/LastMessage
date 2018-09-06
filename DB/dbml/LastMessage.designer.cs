@@ -735,11 +735,13 @@ namespace LastMessage.DB.dbml
 		
 		private int _UserID;
 		
+		private System.DateTime _Time;
+		
 		private string _Type;
 		
 		private string _Text;
 		
-		private int _EntityID;
+		private System.Nullable<int> _EntityID;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -749,11 +751,13 @@ namespace LastMessage.DB.dbml
     partial void OnIDChanged();
     partial void OnUserIDChanging(int value);
     partial void OnUserIDChanged();
+    partial void OnTimeChanging(System.DateTime value);
+    partial void OnTimeChanged();
     partial void OnTypeChanging(string value);
     partial void OnTypeChanged();
     partial void OnTextChanging(string value);
     partial void OnTextChanged();
-    partial void OnEntityIDChanging(int value);
+    partial void OnEntityIDChanging(System.Nullable<int> value);
     partial void OnEntityIDChanged();
     #endregion
 		
@@ -802,6 +806,26 @@ namespace LastMessage.DB.dbml
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Time", DbType="datetime")]
+		public System.DateTime Time
+		{
+			get
+			{
+				return this._Time;
+			}
+			set
+			{
+				if ((this._Time != value))
+				{
+					this.OnTimeChanging(value);
+					this.SendPropertyChanging();
+					this._Time = value;
+					this.SendPropertyChanged("Time");
+					this.OnTimeChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Type", DbType="varchar(32)", CanBeNull=false)]
 		public string Type
 		{
@@ -843,7 +867,7 @@ namespace LastMessage.DB.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EntityID", DbType="int")]
-		public int EntityID
+		public System.Nullable<int> EntityID
 		{
 			get
 			{

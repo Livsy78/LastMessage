@@ -289,6 +289,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>LastMessage.dbml</DependentUpon>
     </Compile>
+    <Compile Include="DB\Destination.cs" />
+    <Compile Include="DB\Log.cs" />
+    <Compile Include="DB\Message.cs" />
+    <Compile Include="DB\Recipient.cs" />
     <Compile Include="DB\User.cs" />
     <Compile Include="default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>

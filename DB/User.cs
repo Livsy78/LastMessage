@@ -11,7 +11,7 @@ namespace LastMessage.DB
     [Table(Name = "User")]
     public class User : BaseTemplate<User>
     {
-        [Column(Name="ID", IsPrimaryKey = true, CanBeNull = false, DbType = "int", IsDbGenerated = true)]
+        [Column(IsPrimaryKey = true, CanBeNull = false, DbType = "int", IsDbGenerated = true)]
         public int ID { get; set; }
 
         [Column(IsPrimaryKey = false, CanBeNull = false, DbType = "varchar(16)", IsDbGenerated = false)]
@@ -25,8 +25,6 @@ namespace LastMessage.DB
         
         [Column(IsPrimaryKey = false, CanBeNull = false, DbType = "nvarchar(128)", IsDbGenerated = false)]
         public string Name { get; set; }
-
-        
 
     }
 

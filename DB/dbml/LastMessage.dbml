@@ -39,9 +39,10 @@
     <Type Name="Log">
       <Column Name="ID" AutoSync="Never" Type="System.Int32" DbType="int" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="UserID" Type="System.Int32" DbType="int" CanBeNull="false" />
+      <Column Name="Time" Type="System.DateTime" DbType="datetime" CanBeNull="false" />
       <Column Name="Type" Type="System.String" DbType="varchar(32)" CanBeNull="false" />
       <Column Name="Text" Type="System.String" DbType="varchar(MAX)" CanBeNull="false" />
-      <Column Name="EntityID" Type="System.Int32" DbType="int" CanBeNull="false" />
+      <Column Name="EntityID" Type="System.Int32" DbType="int" CanBeNull="true" />
     </Type>
   </Table>
 </Database>
