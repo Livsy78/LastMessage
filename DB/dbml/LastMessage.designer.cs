@@ -743,6 +743,8 @@ namespace LastMessage.DB.dbml
 		
 		private System.Nullable<int> _EntityID;
 		
+		private string _EntityType;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -759,6 +761,8 @@ namespace LastMessage.DB.dbml
     partial void OnTextChanged();
     partial void OnEntityIDChanging(System.Nullable<int> value);
     partial void OnEntityIDChanged();
+    partial void OnEntityTypeChanging(string value);
+    partial void OnEntityTypeChanged();
     #endregion
 		
 		public Log()
@@ -882,6 +886,26 @@ namespace LastMessage.DB.dbml
 					this._EntityID = value;
 					this.SendPropertyChanged("EntityID");
 					this.OnEntityIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EntityType", DbType="varchar(16)")]
+		public string EntityType
+		{
+			get
+			{
+				return this._EntityType;
+			}
+			set
+			{
+				if ((this._EntityType != value))
+				{
+					this.OnEntityTypeChanging(value);
+					this.SendPropertyChanging();
+					this._EntityType = value;
+					this.SendPropertyChanged("EntityType");
+					this.OnEntityTypeChanged();
 				}
 			}
 		}

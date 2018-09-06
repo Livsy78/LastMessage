@@ -43,6 +43,7 @@
       <Column Name="Type" Type="System.String" DbType="varchar(32)" CanBeNull="false" />
       <Column Name="Text" Type="System.String" DbType="varchar(MAX)" CanBeNull="false" />
       <Column Name="EntityID" Type="System.Int32" DbType="int" CanBeNull="true" />
+      <Column Name="EntityType" Type="System.String" DbType="varchar(16)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

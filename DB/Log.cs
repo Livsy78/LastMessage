@@ -12,13 +12,13 @@ namespace LastMessage.DB
     public class Log : BaseTemplate<Log>
     {
         [Column(IsPrimaryKey = true, CanBeNull = false, DbType = "int", IsDbGenerated = true)]
-        public int ID { get; set; }
+        private int ID { get; set; }
 
         [Column(IsPrimaryKey = false, CanBeNull = false, DbType = "int", IsDbGenerated = false)]
         public int UserID { get; set; }
 
         [Column(IsPrimaryKey = false, CanBeNull = false, DbType = "datetime", IsDbGenerated = false)]
-        public DateTime Time { get; set; }
+        private DateTime Time { get; set; }
 
 
         // fill manually
@@ -31,10 +31,14 @@ namespace LastMessage.DB
         [Column(IsPrimaryKey = false, CanBeNull = true, DbType = "int", IsDbGenerated = false)]
         public int? EntityID { get; set; }
 
+        [Column(IsPrimaryKey = false, CanBeNull = true, DbType = "varchar(16)", IsDbGenerated = false)]
+        public LogEntityType EntityType { get; set; }
+
     
         public static void Add(Log log)
         {
             log.ID = -1;
+
             log.UserID = 
                 log.UserID == default(int) ?
                 (
@@ -44,7 +48,8 @@ namespace LastMessage.DB
                         -1
                 )
                 :
-                log.UserID;
+                log.UserID
+            ;
             
             log.Time = DateTime.Now;
 
@@ -58,9 +63,14 @@ namespace LastMessage.DB
         ERROR,
         WARNING,
         REGISTER_USER,
+        NEW_MESSAGE,
         SEND_MESSAGE,
 
     }
 
+    public enum LogEntityType
+    {
+        MessageID,
+    }
 
 }
