@@ -61,11 +61,38 @@ namespace LastMessage {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Email not found.
+        /// </summary>
+        internal static string PasswordResetEmailNotFound {
+            get {
+                return ResourceManager.GetString("PasswordResetEmailNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Email has been sent, please check your mail box.
         /// </summary>
-        internal static string PasswordEmailSent {
+        internal static string PasswordResetEmailSent {
             get {
-                return ResourceManager.GetString("PasswordEmailSent", resourceCulture);
+                return ResourceManager.GetString("PasswordResetEmailSent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password token has been expired :(.
+        /// </summary>
+        internal static string PasswordResetTokenExpired {
+            get {
+                return ResourceManager.GetString("PasswordResetTokenExpired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New password saved successfully.
+        /// </summary>
+        internal static string PasswordResetUpdated {
+            get {
+                return ResourceManager.GetString("PasswordResetUpdated", resourceCulture);
             }
         }
     }

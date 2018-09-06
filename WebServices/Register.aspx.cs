@@ -28,10 +28,10 @@ namespace LastMessage.WebServices
                 return output;
             }
 
-            if(input.Password != input.ConfirmPassword)
+            if(input.Password != input.PasswordConfirm)
             {
                 output.Status = "Please confirm password";
-                output.FocusID = "editConfirmPassword_Register";
+                output.FocusID = "editPasswordConfirm_Register";
                 return output;
             }
 
@@ -62,7 +62,7 @@ namespace LastMessage.WebServices
         public string Email {get;set;}
         public string Name {get;set;}
         public string Password {get;set;}
-        public string ConfirmPassword {get;set;}
+        public string PasswordConfirm {get;set;}
         public bool doRememberMe {get;set;}
     }
 

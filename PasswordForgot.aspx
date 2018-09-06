@@ -37,7 +37,7 @@
                     {
                         if(output.Status=="OK")
                         {
-                            window.location.href="Message.aspx?ID=PasswordEmailSent";
+                            window.location.href="Message.aspx?ID=PasswordResetEmailSent";
                         }
                         else
                         {

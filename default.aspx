@@ -61,7 +61,7 @@
             <input type="email" id="editEmail_Register" class="form-control mb-1" placeholder="Email address" required />
             <input type="text" id="editName_Register" class="form-control mb-1" placeholder="Name" required />
             <input type="password" id="editPassword_Register" class="form-control mb-1" placeholder="Password" required />
-            <input type="password" id="editConfirmPassword_Register" class="form-control mb-1" placeholder="Confirm password" required />
+            <input type="password" id="editPasswordConfirm_Register" class="form-control mb-1" placeholder="Confirm password" required />
             <div class="checkbox mt-1">
                 <label>
                     <input type="checkbox" id="cbRememberMe_Register" checked="checked" /> Remember me
@@ -91,7 +91,7 @@
                         Email : $("#editEmail_Register").val(),
                         Name : $("#editName_Register").val(),
                         Password : $("#editPassword_Register").val(),
-                        ConfirmPassword: $("#editConfirmPassword_Register").val(),
+                        PasswordConfirm: $("#editPasswordConfirm_Register").val(),
                         doRememberMe : $("#cbRememberMe_Register").is(':checked'),  // .prop("checked"),
                     };
 

@@ -117,7 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="PasswordEmailSent" xml:space="preserve">
+  <data name="PasswordResetEmailNotFound" xml:space="preserve">
+    <value>Email not found</value>
+  </data>
+  <data name="PasswordResetEmailSent" xml:space="preserve">
     <value>Email has been sent, please check your mail box</value>
+  </data>
+  <data name="PasswordResetTokenExpired" xml:space="preserve">
+    <value>Password token has been expired :(</value>
+  </data>
+  <data name="PasswordResetUpdated" xml:space="preserve">
+    <value>New password saved successfully</value>
   </data>
 </root>

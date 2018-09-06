@@ -42,7 +42,8 @@ namespace LastMessage.WebServices
                     
                     string emailTemplate = File.ReadAllText(Server.MapPath("PasswordForgot.EmailTemplate"));
 
-                    string link = "http://" /*TODO: SSL?? NO, auto-forced for this page //https:// */ + Request.Url.Host + "/NewPassword.aspx?token="+token.ToString();
+                    // string link = "http://" /*TODO: SSL?? NO, auto-forced for this page //https:// */ + Request.Url.Host + "/PasswordReset.aspx?token="+token.ToString();
+                    string link = Request.Url.Host + "/PasswordReset.aspx?token="+token.ToString();
                     string body = string.Format(emailTemplate, user.Name, link, link, expireMinutes, Request.Url.Host);
 
 
@@ -58,7 +59,7 @@ namespace LastMessage.WebServices
                 }
                 catch(Exception ex)
                 {
-                    output.Status = "Sending Email failed: " + ex.Message;
+                    output.Status = "Send Email failed: " + ex.Message;
                 }
 
             }
