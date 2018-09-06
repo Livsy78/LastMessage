@@ -9,4 +9,39 @@
       <Column Name="Name" Type="System.String" DbType="nvarchar(128)" CanBeNull="false" />
     </Type>
   </Table>
+  <Table Name="" Member="Messages">
+    <Type Name="Message">
+      <Column Name="ID" AutoSync="Never" Type="System.Int32" DbType="int" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Status" Type="System.String" DbType="varchar(16)" CanBeNull="false" />
+      <Column Name="TimeToSend" Type="System.DateTime" DbType="datetime" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="nvarchar(64)" CanBeNull="false" />
+      <Column Name="Text" Type="System.String" DbType="nvarchar(MAX)" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="" Member="Recipients">
+    <Type Name="Recipient">
+      <Column Name="ID" AutoSync="Never" Type="System.Int32" DbType="int" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Status" Type="System.String" DbType="varchar(16)" CanBeNull="false" />
+      <Column Name="MessageID" Type="System.Int32" DbType="int" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="nvarchar(64)" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="" Member="Destinations">
+    <Type Name="Destination">
+      <Column Name="ID" AutoSync="Never" Type="System.Int32" DbType="int" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Status" Type="System.String" DbType="varchar(16)" CanBeNull="false" />
+      <Column Name="RecipientID" Type="System.Int32" DbType="int" CanBeNull="false" />
+      <Column Name="Type" Type="System.String" DbType="varchar(16)" CanBeNull="false" />
+      <Column Name="Address" Type="System.String" DbType="nvarchar(64)" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="" Member="Logs">
+    <Type Name="Log">
+      <Column Name="ID" AutoSync="Never" Type="System.Int32" DbType="int" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserID" Type="System.Int32" DbType="int" CanBeNull="false" />
+      <Column Name="Type" Type="System.String" DbType="varchar(32)" CanBeNull="false" />
+      <Column Name="Text" Type="System.String" DbType="varchar(MAX)" CanBeNull="false" />
+      <Column Name="EntityID" Type="System.Int32" DbType="int" CanBeNull="false" />
+    </Type>
+  </Table>
 </Database>
