@@ -20,6 +20,8 @@ namespace LastMessage.DB
         [Column(IsPrimaryKey = false, CanBeNull = false, DbType = "datetime", IsDbGenerated = false)]
         public DateTime Time { get; set; }
 
+
+        // fill manually
         [Column(IsPrimaryKey = false, CanBeNull = false, DbType = "varchar(32)", IsDbGenerated = false)]
         public LogType Type { get; set; }
 
@@ -29,11 +31,35 @@ namespace LastMessage.DB
         [Column(IsPrimaryKey = false, CanBeNull = true, DbType = "int", IsDbGenerated = false)]
         public int? EntityID { get; set; }
 
+    
+        public static void Add(Log log)
+        {
+            log.ID = -1;
+            log.UserID = 
+                log.UserID == default(int) ?
+                (
+                    log.UserID = HttpContext.Current.User.Identity.IsAuthenticated ? 
+                        DB.User.GetByFieldValue("Email", HttpContext.Current.User.Identity.Name).ID
+                        : 
+                        -1
+                )
+                :
+                log.UserID;
+            
+            log.Time = DateTime.Now;
+
+            log.Save();
+        }
+
     }
 
     public enum LogType 
     {
         ERROR,
+        WARNING,
+        REGISTER_USER,
+        SEND_MESSAGE,
+
     }
 
 
