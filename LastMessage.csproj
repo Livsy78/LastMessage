@@ -278,6 +278,7 @@
     <Content Include="PasswordForgot.aspx" />
     <Content Include="PasswordReset.aspx" />
     <Content Include="Web.config" />
+    <Content Include="WebServices\GetMessageList.aspx" />
     <Content Include="WebServices\Login.aspx" />
     <Content Include="WebServices\PasswordForgot.aspx" />
     <Content Include="WebServices\Register.aspx" />
@@ -355,6 +356,13 @@
     <Compile Include="Tools\Email.cs" />
     <Compile Include="WebServices\BaseTemplate.cs">
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebServices\GetMessageList.aspx.cs">
+      <DependentUpon>GetMessageList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebServices\GetMessageList.aspx.designer.cs">
+      <DependentUpon>GetMessageList.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebServices\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

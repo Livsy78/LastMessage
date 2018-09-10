@@ -287,7 +287,7 @@ namespace LastMessage.DB.dbml
 		
 		private int _UserID;
 		
-		private int _SendInDays;
+		private int _SendIn_Days;
 		
 		private System.DateTime _TimeToSend;
 		
@@ -305,8 +305,8 @@ namespace LastMessage.DB.dbml
     partial void OnStatusChanged();
     partial void OnUserIDChanging(int value);
     partial void OnUserIDChanged();
-    partial void OnSendInDaysChanging(int value);
-    partial void OnSendInDaysChanged();
+    partial void OnSendIn_DaysChanging(int value);
+    partial void OnSendIn_DaysChanged();
     partial void OnTimeToSendChanging(System.DateTime value);
     partial void OnTimeToSendChanged();
     partial void OnTitleChanging(string value);
@@ -380,22 +380,22 @@ namespace LastMessage.DB.dbml
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SendInDays", DbType="int")]
-		public int SendInDays
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="SendInDays", Storage="_SendIn_Days", DbType="int")]
+		public int SendIn_Days
 		{
 			get
 			{
-				return this._SendInDays;
+				return this._SendIn_Days;
 			}
 			set
 			{
-				if ((this._SendInDays != value))
+				if ((this._SendIn_Days != value))
 				{
-					this.OnSendInDaysChanging(value);
+					this.OnSendIn_DaysChanging(value);
 					this.SendPropertyChanging();
-					this._SendInDays = value;
-					this.SendPropertyChanged("SendInDays");
-					this.OnSendInDaysChanged();
+					this._SendIn_Days = value;
+					this.SendPropertyChanged("SendIn_Days");
+					this.OnSendIn_DaysChanged();
 				}
 			}
 		}

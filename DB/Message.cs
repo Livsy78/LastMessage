@@ -21,7 +21,7 @@ namespace LastMessage.DB
         public int UserID { get; set; }
         
         [Column(IsPrimaryKey = false, CanBeNull = false, DbType = "int", IsDbGenerated = false)]
-        public int SendInDays { get; set; }
+        public int SendIn_Days { get; set; }
 
         [Column(IsPrimaryKey = false, CanBeNull = false, DbType = "datetime", IsDbGenerated = false)]
         public DateTime TimeToSend { get; set; }

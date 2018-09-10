@@ -16,7 +16,7 @@ namespace LastMessage
             lblMessage.Text=string.Format("count: {0}", messages.Length );
             foreach(DB.Message msg in messages)
             {
-                lblMessage.Text += string.Format("<br/>{0}", msg.SendInDays);
+                lblMessage.Text += string.Format("<br/>{0}", msg.SendIn_Days);
             }
 
         }
