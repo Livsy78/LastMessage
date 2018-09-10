@@ -7,16 +7,18 @@ using System.Web.UI.WebControls;
 
 namespace LastMessage
 {
-    public partial class Home : System.Web.UI.Page
+    public partial class Home : BasePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            // to BasePage !?
-            int userID = DB.User.GetByFieldValue("Email", HttpContext.Current.User.Identity.Name).ID;
+            DB.Message[] messages = DB.Message.GetAllByFieldValue<int>("UserID", CurrentUserID);
 
-            DB.Message[] messages = DB.Message.GetAllByFieldValue<int>("UserID", userID);
+            lblMessage.Text=string.Format("count: {0}", messages.Length );
+            foreach(DB.Message msg in messages)
+            {
+                lblMessage.Text += string.Format("<br/>{0}", msg.SendInDays);
+            }
 
-            lblMessage.Text=string.Format("count: {0}", messages.Count() );
         }
     }
 }

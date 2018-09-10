@@ -283,6 +283,9 @@
     <Content Include="WebServices\Register.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="DB\BaseTemplate.cs" />
     <Compile Include="DB\dbml\LastMessage.designer.cs">
       <AutoGen>True</AutoGen>

@@ -9,7 +9,7 @@
 
   <div style="">
 
-    Welcome <%= HttpContext.Current.User.Identity.Name %>
+    Welcome <%= CurrentUserEmail %>
     <br/>
     <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label>
 

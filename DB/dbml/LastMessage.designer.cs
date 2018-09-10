@@ -287,6 +287,8 @@ namespace LastMessage.DB.dbml
 		
 		private int _UserID;
 		
+		private int _SendInDays;
+		
 		private System.DateTime _TimeToSend;
 		
 		private string _Title;
@@ -303,6 +305,8 @@ namespace LastMessage.DB.dbml
     partial void OnStatusChanged();
     partial void OnUserIDChanging(int value);
     partial void OnUserIDChanged();
+    partial void OnSendInDaysChanging(int value);
+    partial void OnSendInDaysChanged();
     partial void OnTimeToSendChanging(System.DateTime value);
     partial void OnTimeToSendChanged();
     partial void OnTitleChanging(string value);
@@ -372,6 +376,26 @@ namespace LastMessage.DB.dbml
 					this._UserID = value;
 					this.SendPropertyChanged("UserID");
 					this.OnUserIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SendInDays", DbType="int")]
+		public int SendInDays
+		{
+			get
+			{
+				return this._SendInDays;
+			}
+			set
+			{
+				if ((this._SendInDays != value))
+				{
+					this.OnSendInDaysChanging(value);
+					this.SendPropertyChanging();
+					this._SendInDays = value;
+					this.SendPropertyChanged("SendInDays");
+					this.OnSendInDaysChanged();
 				}
 			}
 		}
