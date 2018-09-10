@@ -17,6 +17,9 @@ namespace LastMessage.DB
         [Column(IsPrimaryKey = false, CanBeNull = false, DbType = "varchar(16)", IsDbGenerated = false)]
         public MessageStatus Status { get; set; }
 
+        [Column(IsPrimaryKey = false, CanBeNull = false, DbType = "int", IsDbGenerated = false)]
+        public int UserID { get; set; }
+        
         [Column(IsPrimaryKey = false, CanBeNull = false, DbType = "datetime", IsDbGenerated = false)]
         public DateTime TimeToSend { get; set; }
         
@@ -31,6 +34,7 @@ namespace LastMessage.DB
     {
         ACTIVE,
         DISABLED,
+        SENT,
     }
 
 }

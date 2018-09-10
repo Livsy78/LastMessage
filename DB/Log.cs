@@ -32,7 +32,7 @@ namespace LastMessage.DB
         public int? EntityID { get; set; }
 
         [Column(IsPrimaryKey = false, CanBeNull = true, DbType = "varchar(16)", IsDbGenerated = false)]
-        public LogEntityType EntityType { get; set; }
+        public LogEntityType? EntityType { get; set; }
 
     
         public static void Add(Log log)
@@ -63,14 +63,14 @@ namespace LastMessage.DB
         ERROR,
         WARNING,
         REGISTER_USER,
-        NEW_MESSAGE,
+        SAVE_MESSAGE,
         SEND_MESSAGE,
 
     }
 
     public enum LogEntityType
     {
-        MessageID,
+        Message,
     }
 
 }

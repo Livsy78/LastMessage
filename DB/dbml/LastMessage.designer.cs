@@ -285,6 +285,8 @@ namespace LastMessage.DB.dbml
 		
 		private string _Status;
 		
+		private int _UserID;
+		
 		private System.DateTime _TimeToSend;
 		
 		private string _Title;
@@ -299,6 +301,8 @@ namespace LastMessage.DB.dbml
     partial void OnIDChanged();
     partial void OnStatusChanging(string value);
     partial void OnStatusChanged();
+    partial void OnUserIDChanging(int value);
+    partial void OnUserIDChanged();
     partial void OnTimeToSendChanging(System.DateTime value);
     partial void OnTimeToSendChanged();
     partial void OnTitleChanging(string value);
@@ -348,6 +352,26 @@ namespace LastMessage.DB.dbml
 					this._Status = value;
 					this.SendPropertyChanged("Status");
 					this.OnStatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserID", DbType="int")]
+		public int UserID
+		{
+			get
+			{
+				return this._UserID;
+			}
+			set
+			{
+				if ((this._UserID != value))
+				{
+					this.OnUserIDChanging(value);
+					this.SendPropertyChanging();
+					this._UserID = value;
+					this.SendPropertyChanged("UserID");
+					this.OnUserIDChanged();
 				}
 			}
 		}

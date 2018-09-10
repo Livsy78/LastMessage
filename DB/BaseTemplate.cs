@@ -45,6 +45,17 @@ namespace LastMessage.DB
             return obj;
         }
 
+        public static T GetByFieldValue<TField>(string fieldName, TField fieldValue)
+        {
+            ParameterExpression parameterExpression = Expression.Parameter(typeof(T), "r");   // r => r
+            Expression condition = Expression.Property(parameterExpression, fieldName);   // r => r.fieldName
+            condition = Expression.Equal(condition, Expression.Constant(fieldValue)); // r=>r.fieldName == fieldValue
+            var lambda = Expression.Lambda<Func<T, bool>>(condition, parameterExpression);
+            T obj = table.SingleOrDefault(lambda.Compile());
+
+            return obj;
+        }
+
         public static T GetByFieldValue(string fieldName, string fieldValue)
         {
             ParameterExpression parameterExpression = Expression.Parameter(typeof(T), "r");   // r => r
@@ -60,6 +71,17 @@ namespace LastMessage.DB
         public static T[] GetAll()
         {
             T[] obj = table.ToArray();
+
+            return obj;
+        }
+
+        public static T[] GetAllByFieldValue<TField>(string fieldName, TField fieldValue)
+        {
+            ParameterExpression parameterExpression = Expression.Parameter(typeof(T), "r");   // r => r
+            Expression condition = Expression.Property(parameterExpression, fieldName);   // r => r.fieldName
+            condition = Expression.Equal(condition, Expression.Constant(fieldValue)); // r=>r.fieldName == fieldValue
+            var lambda = Expression.Lambda<Func<T, bool>>(condition, parameterExpression);
+            T[] obj = table.Where(lambda.Compile()).ToArray();
 
             return obj;
         }

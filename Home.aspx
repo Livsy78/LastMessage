@@ -10,6 +10,8 @@
   <div style="">
 
     Welcome <%= HttpContext.Current.User.Identity.Name %>
+    <br/>
+    <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label>
 
   </div>
 
