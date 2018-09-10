@@ -14,10 +14,7 @@ namespace LastMessage.WebServices
 
         public override Register_Output GetData(Register_Input input)
         {
-            Register_Output output = new Register_Output()
-            {
-                Status = "OK"
-            };
+            Register_Output output = new Register_Output();
 
             DB.User user = DB.User.GetByFieldValue("Email", input.Email);
 

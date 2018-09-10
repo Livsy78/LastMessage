@@ -71,7 +71,7 @@
             <div id="messageRegister" class="error-box mb-1">
             </div>
 
-            <button type="submit" class="btn btn-lg plt-1 pltbg-3 btn-block mb-3">Sign Up</button>
+            <button type="submit" class="btn btn-lg plt-1 pltbg-3 btn-block btn-shdw mb-3">Sign Up</button>
 
             Already have an account?
             <br/>
@@ -141,7 +141,7 @@
             <div id="messageLogin" class="error-box mb-1">
             </div>
 
-            <button type="submit" class="btn btn-lg plt-1 pltbg-3 btn-block mb-3">Sign In</button>
+            <button type="submit" class="btn btn-lg plt-1 pltbg-3 btn-block btn-shdw mb-3">Sign In</button>
 
             Don't have an account?
             <br/>

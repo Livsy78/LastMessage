@@ -36,7 +36,7 @@ namespace LastMessage.DB
     public enum MessageStatus
     {
         ACTIVE,
-        DISABLED,
+        PAUSED,
         SENT,
     }
 

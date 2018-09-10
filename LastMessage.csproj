@@ -66,6 +66,7 @@
     <Content Include="img\favicon-16x16.png" />
     <Content Include="img\favicon.ico" />
     <Content Include="img\letter-hourglass.png" />
+    <Content Include="js\FormatTime.js" />
     <Content Include="libs\bootstrap\.babelrc.js" />
     <Content Include="libs\bootstrap\build\build-plugins.js" />
     <Content Include="libs\bootstrap\build\change-version.js" />
@@ -659,6 +660,7 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <Content Include="WebServices\PasswordForgot.EmailTemplate" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
@@ -668,9 +670,7 @@
       <DependentUpon>LastMessage.dbml</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="js\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Messages.resx">
       <Generator>ResXFileCodeGenerator</Generator>

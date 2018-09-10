@@ -77,6 +77,11 @@ namespace LastMessage.WebServices
     public abstract class BaseOutput
     {
         public string Status {get;set;}
+
+        public BaseOutput()
+        {
+            Status = "OK";
+        }
     }
 
 }

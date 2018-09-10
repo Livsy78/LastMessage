@@ -15,10 +15,7 @@ namespace LastMessage.WebServices
 
         public override PasswordForgot_Output GetData(PasswordForgot_Input input)
         {
-            PasswordForgot_Output output = new PasswordForgot_Output()
-            {
-                Status = "OK"
-            };
+            PasswordForgot_Output output = new PasswordForgot_Output();
 
             DB.User user = DB.User.GetByFieldValue("Email", input.Email);
             

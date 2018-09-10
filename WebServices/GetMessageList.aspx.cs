@@ -11,10 +11,7 @@ namespace LastMessage.WebServices
     {
         public override GetMessageList_Output GetData(GetMessageList_Input input)
         {
-            GetMessageList_Output output = new GetMessageList_Output()
-            {
-                Status = "OK"
-            };
+            GetMessageList_Output output = new GetMessageList_Output();
 
             DB.Message[] messages = DB.Message.GetAllByFieldValue<int>("UserID", input.UserID);
 
@@ -35,20 +32,24 @@ namespace LastMessage.WebServices
                 }
 
 
-                GetMessageList_OutputItem item=new GetMessageList_OutputItem()
+                items.Add(new GetMessageList_OutputItem()
                 {
                     MessageID = message.ID,
                     Status = message.Status.ToString(),
                     Recipients = recipients,
-                    SendIn_Seconds = Convert.ToInt32( (message.TimeToSend - now).TotalSeconds ),
+                    SendIn_Seconds = message.Status != DB.MessageStatus.SENT ? 
+                                    Convert.ToInt32( (message.TimeToSend - now).TotalSeconds ) 
+                                    : 
+                                    int.MaxValue, // make sent message go to the end of list in OrderBy(r=> r.SendIn_Seconds) (see bellow)
                     Title = message.Title,
                     Text = message.Text,
-                };
-                items.Add(item);
+                });
             }
             
             output.TotalItems = items.Count();
-            output.Items = items.ToArray();
+            output.Items = items
+                .OrderBy(r=> r.SendIn_Seconds)
+                .ToArray();
             return output;
         }
 
@@ -72,7 +73,7 @@ namespace LastMessage.WebServices
         public string Recipients {get;set;}  // hmmm comma separated? Recipient[] ?
         public int SendIn_Seconds {get;set;}
         public string Title {get;set;}
-        public string Text {get;set;}
+        public string Text {get;set;}        // need ?
     }
 
 }

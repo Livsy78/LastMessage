@@ -60,7 +60,7 @@
     </div>
 <!-- HEADER END -->
 
-    <div style="padding:20px 35px 20px 35px;">
+    <div style="padding:20px 20px 20px 20px;">
         <asp:ContentPlaceHolder ID="ContentPlaceHolder" runat="server">
         </asp:ContentPlaceHolder>
     </div>    
