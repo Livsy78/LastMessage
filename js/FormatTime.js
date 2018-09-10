@@ -24,6 +24,13 @@ function FormatTime(seconds)
         seconds -= days * day;
     }
 
+
+    if(out != "")
+    {
+        out = "<i>"+out+"</i><br/>";
+    }
+
+
     var hours = Math.floor(seconds / hour);
     out += (hours < 10 ? "0" : "") + hours.toString() + ":";
     seconds -= hours * hour;

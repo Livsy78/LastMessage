@@ -123,14 +123,16 @@ namespace LastMessage.DB
 
         public T Save()
         {
-            db.Connection.Open();
 
-            db.Transaction = db.Connection.BeginTransaction();
-
-            /*TMP*/int id=_ID;
-            
             try
             {
+                if(db.Connection.State != System.Data.ConnectionState.Open) // https://stackoverflow.com/a/13343273
+                {
+                    db.Connection.Open();
+                }
+
+                db.Transaction = db.Connection.BeginTransaction();
+
                 T obj = Get(_ID);
                 if (obj == null)
                 {
@@ -156,8 +158,11 @@ namespace LastMessage.DB
 
                 throw e;
             }
+            finally
+            {
+                db.Connection.Close();
+            }
 
-            db.Connection.Close();
 
             return (T)this;
         }

@@ -7,8 +7,9 @@
     <style>
         #MessageList td
         {
-            padding:5px 1px 7px 1px;
+            padding:5px 2px 7px 2px;
         }
+
     </style>
 
 </asp:Content>
@@ -18,22 +19,24 @@
 
   <div style="">
 
-    <form id="ResetForm" style="text-align:center;" onsubmit="ResetForm_OnSubmit(); return false;">
+    <form id="ResetForm" style="text-align:center;" runat="server">
 
-        <button type="submit" class="btn btn-lg plt-1 pltbg-3 btn-block btn-shdw pt-3 pb-3 mb-3">I'm OK<br/>Reset all timers</button>
+        <!--  <button type="submit" class="btn btn-lg plt-1 pltbg-3 btn-block btn-shdw pt-3 pb-3 mb-3">I'm OK<br/>Reset all timers</button>  -->
+        <asp:ImageButton ID="btnResetTimers" runat="server" ImageUrl="img/ResetButton.png" CssClass="btn btn-lg plt-1 pltbg-3 btn-shdw pt-3 pb-3 mb-3" OnClick="btnResetTimers_Click" />		
+        
 
         <h5>There will be send</h5>
 
         <table id="MessageList" style="width:100%; line-height:18px;" class="mt-3">
             
             <tr id="MessageTemplate" style="border-bottom:solid; border-bottom-color:#b6bbcc; border-bottom-width:1px;  display:none;">
-                <td class="Message_Title" style="width:20%;">
+                <td class="Message_Title" style="width:25%;">
                     Title
                 </td>
                 <td>
-                    <i>to</i>
+                   <b>TO:</b>
                 </td>
-                <td class="Message_Recipients" style=" width:20%;">
+                <td class="Message_Recipients" style="width:25%;">
                     Recipient1, 
                     <br/>
                     Recipient123,
@@ -41,13 +44,13 @@
                     Recipient3
                 </td>
                 <td>
-                    <i>in</i>
+                   <b>IN:</b>
                 </td>
-                <td class="Message_Timer" style="width:40%;">
+                <td class="Message_Timer" style="width:25%;">
                     2m 23d 14:53:18
                 </td>
-                <td>
-                    <img class="btn" src="img/remove25x25.png"/>
+                <td style="width:25px;">
+                    <img class="cursor-pointer mr-1" src="img/remove25x25.png"/>
                 </td>
             </tr>
 
@@ -67,8 +70,8 @@
                 <td style="width:25%;">
                     &nbsp;
                 </td>
-                <td>
-                    <img class="btn" src="img/add25x25.png"/>
+                <td style="width:25px;">
+                    <img class="cursor-pointer mr-1" src="img/add25x25.png"/>
                 </td>
             </tr>
             
@@ -159,10 +162,6 @@
                 
             }
 
-            function ResetForm_OnSubmit()
-            {
-
-            }
         </script>
     </form>
 

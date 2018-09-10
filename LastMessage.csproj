@@ -62,10 +62,15 @@
     <Content Include="css\common.css" />
     <Content Include="default.aspx" />
     <Content Include="Home.aspx" />
+    <Content Include="img\add25x25.png" />
     <Content Include="img\dot.png" />
     <Content Include="img\favicon-16x16.png" />
     <Content Include="img\favicon.ico" />
     <Content Include="img\letter-hourglass.png" />
+    <Content Include="img\palette\palette-mockup.png" />
+    <Content Include="img\palette\palette-short.png" />
+    <Content Include="img\palette\palette.png" />
+    <Content Include="img\remove25x25.png" />
     <Content Include="js\FormatTime.js" />
     <Content Include="libs\bootstrap\.babelrc.js" />
     <Content Include="libs\bootstrap\build\build-plugins.js" />

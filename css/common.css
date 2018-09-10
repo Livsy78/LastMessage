@@ -47,6 +47,12 @@ a.navbar-link:hover, a.navbar-link:active , .navbar-link-active
     box-shadow: 3px 3px 3px rgba(0,0,0,0.5);
 }
 
+/*TODO: modify for actual buttons type, i.e. input*/
+img.cursor-pointer:hover
+{
+    cursor: pointer;
+}
+
 /* More hints for old IE : https://stackoverflow.com/questions/1895476/how-to-style-a-select-dropdown-with-only-css */
 /* NOT USED ATM */
 .navbar-dropdown
