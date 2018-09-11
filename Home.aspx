@@ -25,9 +25,9 @@
         <asp:ImageButton ID="btnResetTimers" runat="server" ImageUrl="img/ResetButton.png" CssClass="btn btn-lg plt-1 pltbg-3 btn-shdw pt-3 pb-3 mb-3" OnClick="btnResetTimers_Click" />		
         
 
-        <h5>There will be send</h5>
+        <h5>There will be send:</h5>
 
-        <table id="MessageList" style="width:100%; line-height:18px;" class="mt-3">
+        <table id="MessageList" style="width:100%; line-height:18px;" class="mt-1">
             
             <tr id="MessageTemplate" style="border-bottom:solid; border-bottom-color:#b6bbcc; border-bottom-width:1px;  display:none;">
                 <td class="Message_Title" style="width:25%;">
@@ -71,7 +71,7 @@
                     &nbsp;
                 </td>
                 <td style="width:25px;">
-                    <img class="cursor-pointer mr-1" src="img/add25x25.png"/>
+                    <img class="cursor-pointer mt-2 mr-1" src="img/add25x25.png"/>
                 </td>
             </tr>
             
