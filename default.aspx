@@ -35,7 +35,7 @@
                         <img src="img/dot.png"/>
                     </td>
                     <td>
-                        To reset timers for all your messages just visit this site and press big main button "I'M SAFE" any time BEFORE timeout will expire.
+                        To reset timers for all your messages just visit this site and press big main button <img src="img/imok.png" style="height:18px;"/> any time BEFORE timeout will expire.
                         <br/>
                         <i>Note:</i> You will get notification about timeout going to be expired
                     </td>
@@ -82,6 +82,8 @@
                 {
                     $("#RegisterForm").hide();
                     $("#LoginForm").show();
+                    
+                    $("#editEmail_Login").focus();
                 }
 
                 function RegisterForm_OnSubmit()
