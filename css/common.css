@@ -7,11 +7,11 @@
     /* font-size:19px; */
 }
 
-@media (min-width: 800px) 
+@media (min-width: 600px) 
 {
     .body 
     {
-        width:800px;
+        width:600px;
     }
 }
 

@@ -61,16 +61,20 @@
   <ItemGroup>
     <Content Include="css\common.css" />
     <Content Include="default.aspx" />
+    <Content Include="EditMessage.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="img\add25x25.png" />
     <Content Include="img\dot.png" />
     <Content Include="img\favicon-16x16.png" />
     <Content Include="img\favicon.ico" />
+    <Content Include="img\imok.png" />
     <Content Include="img\letter-hourglass.png" />
     <Content Include="img\palette\palette-mockup.png" />
     <Content Include="img\palette\palette-short.png" />
     <Content Include="img\palette\palette.png" />
+    <Content Include="img\pointer-finger.png" />
     <Content Include="img\remove25x25.png" />
+    <Content Include="img\ResetButton.png" />
     <Content Include="js\FormatTime.js" />
     <Content Include="libs\bootstrap\.babelrc.js" />
     <Content Include="libs\bootstrap\build\build-plugins.js" />
@@ -310,6 +314,13 @@
     </Compile>
     <Compile Include="default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditMessage.aspx.cs">
+      <DependentUpon>EditMessage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditMessage.aspx.designer.cs">
+      <DependentUpon>EditMessage.aspx</DependentUpon>
     </Compile>
     <Compile Include="HeaderFooter.Master.cs">
       <DependentUpon>HeaderFooter.Master</DependentUpon>
@@ -659,6 +670,7 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="connectionStrings.config" />
+    <Content Include="img\ResetButton.pdn" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

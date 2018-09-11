@@ -130,7 +130,7 @@
                             .insertBefore("#MessageList_LastRow");
 
                     messageElem.find(".Message_Title")
-                        .html("<a href='#' class='plt-3'>"+msg.Title+"</a>");
+                        .html("<a href='EditMessage.aspx?ID=" + msg.MessageID + "' class='plt-3'>"+msg.Title+"</a>");
 
                     messageElem.find(".Message_Recipients")
                         .html(msg.Recipients.replace(",", ",<br/>"));
@@ -147,6 +147,7 @@
                 for(var msgIdx=0; msgIdx<data.TotalItems; msgIdx++)
                 {
                     var msg = data.Items[msgIdx];
+
                     if(msg.Status != "ACTIVE")
                     {
                         continue;
@@ -154,8 +155,11 @@
 
                     var messageElem = $("#Message" + msg.MessageID);
 
-                    msg.SendIn_Seconds--;
-                    if(msg.SendIn_Seconds==0)
+                    if(msg.SendIn_Seconds > 0)
+                    {
+                        msg.SendIn_Seconds--;
+                    }
+                    else
                     {
                         // TODO! sending!
                     }
