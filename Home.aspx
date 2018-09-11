@@ -22,12 +22,12 @@
     <form id="ResetForm" style="text-align:center;" runat="server">
 
         <!--  <button type="submit" class="btn btn-lg plt-1 pltbg-3 btn-block btn-shdw pt-3 pb-3 mb-3">I'm OK<br/>Reset all timers</button>  -->
-        <asp:ImageButton ID="btnResetTimers" runat="server" ImageUrl="img/ResetButton.png" CssClass="btn btn-lg plt-1 pltbg-3 btn-shdw pt-3 pb-3 mb-3" OnClick="btnResetTimers_Click" />		
+        <asp:ImageButton ID="btnResetTimers" runat="server" ImageUrl="img/ResetButton.png" CssClass="btn btn-lg plt-1 pltbg-3 btn-shdw pt-3 pb-3 mb-4" OnClick="btnResetTimers_Click" />		
         
 
         <h5>There will be send:</h5>
 
-        <table id="MessageList" style="width:100%; line-height:18px;" class="mt-1">
+        <table id="MessageList" style="width:100%; line-height:18px;" class="mt-3">
             
             <tr id="MessageTemplate" style="border-bottom:solid; border-bottom-color:#b6bbcc; border-bottom-width:1px;  display:none;">
                 <td class="Message_Title" style="width:25%;">
@@ -130,7 +130,7 @@
                             .insertBefore("#MessageList_LastRow");
 
                     messageElem.find(".Message_Title")
-                        .html(msg.Title);
+                        .html("<a href='#' class='plt-3'>"+msg.Title+"</a>");
 
                     messageElem.find(".Message_Recipients")
                         .html(msg.Recipients.replace(",", ",<br/>"));
@@ -155,6 +155,10 @@
                     var messageElem = $("#Message" + msg.MessageID);
 
                     msg.SendIn_Seconds--;
+                    if(msg.SendIn_Seconds==0)
+                    {
+                        // TODO! sending!
+                    }
 
                     messageElem.find(".Message_Timer")
                         .html(FormatTime(msg.SendIn_Seconds));
