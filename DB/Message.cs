@@ -24,7 +24,7 @@ namespace LastMessage.DB
         public int SendIn_Days { get; set; }
 
         [Column(IsPrimaryKey = false, CanBeNull = false, DbType = "datetime", IsDbGenerated = false)]
-        public DateTime TimeToSend { get; set; }
+        public DateTime SendTime { get; set; }
         
         [Column(IsPrimaryKey = false, CanBeNull = false, DbType = "nvarchar(64)", IsDbGenerated = false)]
         public string Title { get; set; }

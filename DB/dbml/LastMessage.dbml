@@ -15,7 +15,7 @@
       <Column Name="Status" Type="System.String" DbType="varchar(16)" CanBeNull="false" />
       <Column Name="UserID" Type="System.Int32" DbType="int" CanBeNull="false" />
       <Column Name="SendInDays" Member="SendIn_Days" Type="System.Int32" DbType="int" CanBeNull="false" />
-      <Column Name="TimeToSend" Type="System.DateTime" DbType="datetime" CanBeNull="false" />
+      <Column Name="TimeToSend" Member="SendTime" Storage="_TimeToSend" Type="System.DateTime" DbType="datetime" CanBeNull="false" />
       <Column Name="Title" Type="System.String" DbType="nvarchar(64)" CanBeNull="false" />
       <Column Name="Text" Type="System.String" DbType="nvarchar(MAX)" CanBeNull="false" />
     </Type>

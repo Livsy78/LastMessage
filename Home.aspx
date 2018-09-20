@@ -81,7 +81,6 @@
                         <img class="cursor-pointer mt-2 mr-1" src="img/add25x25.png"/>
                 </td>
             </tr>
-            
         </table>
 
         <script>

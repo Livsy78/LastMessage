@@ -38,7 +38,7 @@ namespace LastMessage.WebServices
                     Status = message.Status.ToString(),
                     Recipients = recipients,
                     SendIn_Seconds = message.Status != DB.MessageStatus.SENT ? 
-                                    Convert.ToInt32( (message.TimeToSend - now).TotalSeconds ) 
+                                    Convert.ToInt32( (message.SendTime - now).TotalSeconds ) 
                                     : 
                                     int.MaxValue, // make sent message go to the end of list in OrderBy(r=> r.SendIn_Seconds) (see bellow)
                     Title = message.Title,

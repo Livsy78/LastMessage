@@ -307,8 +307,8 @@ namespace LastMessage.DB.dbml
     partial void OnUserIDChanged();
     partial void OnSendIn_DaysChanging(int value);
     partial void OnSendIn_DaysChanged();
-    partial void OnTimeToSendChanging(System.DateTime value);
-    partial void OnTimeToSendChanged();
+    partial void OnSendTimeChanging(System.DateTime value);
+    partial void OnSendTimeChanged();
     partial void OnTitleChanging(string value);
     partial void OnTitleChanged();
     partial void OnTextChanging(string value);
@@ -400,8 +400,8 @@ namespace LastMessage.DB.dbml
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeToSend", DbType="datetime")]
-		public System.DateTime TimeToSend
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="TimeToSend", Storage="_TimeToSend", DbType="datetime")]
+		public System.DateTime SendTime
 		{
 			get
 			{
@@ -411,11 +411,11 @@ namespace LastMessage.DB.dbml
 			{
 				if ((this._TimeToSend != value))
 				{
-					this.OnTimeToSendChanging(value);
+					this.OnSendTimeChanging(value);
 					this.SendPropertyChanging();
 					this._TimeToSend = value;
-					this.SendPropertyChanged("TimeToSend");
-					this.OnTimeToSendChanged();
+					this.SendPropertyChanged("SendTime");
+					this.OnSendTimeChanged();
 				}
 			}
 		}

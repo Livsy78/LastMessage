@@ -3,6 +3,10 @@
 <asp:Content ID="head" runat="server" ContentPlaceHolderID="head">
 
     <style>
+        #RecipientList td
+        {
+            padding:5px 2px 7px 2px;
+        }
     </style>
 
     <title>Last Message - Edit Message "TODO"</title>
@@ -35,7 +39,7 @@
 
         <h5>Send To:</h5>
             
-        <table style="width:100%; line-height:18px;" class="mt-3">
+        <table id="RecipientList" style="width:100%; line-height:18px;" class="mt-3">
             <asp:Repeater ID="rptRecipientList" runat="server">
                  <ItemTemplate>
                     <tr style="border-bottom:solid; border-bottom-color:#b6bbcc; border-bottom-width:1px;">

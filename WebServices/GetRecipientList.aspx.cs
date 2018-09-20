@@ -29,7 +29,7 @@ namespace LastMessage.WebServices
                     {
                         destinations += "<br/>";
                     }
-                    destinations += string.Format("{0}: {1}", destination.Type.ToString(), destination.Address);
+                    destinations += string.Format("<i>{0}:</i> {1}", destination.Type.ToString(), destination.Address);
                 }
 
                 items.Add(new GetRecipientList_OutputItem()
