@@ -10,24 +10,24 @@
 namespace LastMessage {
     
     
-    public partial class EditMessage {
+    public partial class TestPage {
         
         /// <summary>
-        /// EditMessageForm control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm EditMessageForm;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// rptRecipientList control.
+        /// lblMessage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptRecipientList;
+        protected global::System.Web.UI.WebControls.Label lblMessage;
     }
 }

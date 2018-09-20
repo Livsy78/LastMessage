@@ -21,12 +21,29 @@ namespace LastMessage
                     throw new Exception();
                 }
 
+                UpdateRecipientList(message.ID);
 
             }
             catch
             {
                 Response.Redirect("Home.aspx");
             }
+        }
+
+
+        protected void UpdateRecipientList(int messageID)
+        {
+            //WebServices.GetRecipientList_Output data = WebServices.GetRecipientList.GetData(messageID); // fail
+            
+            WebServices.GetRecipientList_Output data = (new WebServices.GetRecipientList())  // no other way
+                .GetData(new WebServices.GetRecipientList_Input() 
+                {
+                    MessageID = messageID,
+                });
+
+            rptRecipientList.DataSource = data.Items;
+            rptRecipientList.DataBind();
+
         }
 
 

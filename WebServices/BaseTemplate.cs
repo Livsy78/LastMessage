@@ -20,7 +20,7 @@ namespace LastMessage.WebServices
             
             TOutput output = new TOutput();
 
-            // if(input==default(TInput)) // Operator '==' cannot be applied to operands of type 'TInput' and 'TInput'	// https://stackoverflow.com/questions/8982645/how-to-solve-operator-cannot-be-applied-to-operands-of-type-t-and-t
+            // if(input==default(TInput)) // Operator '==' cannot be applied to operands of type 'TInput' and 'TInput'  // https://stackoverflow.com/questions/8982645/how-to-solve-operator-cannot-be-applied-to-operands-of-type-t-and-t
             if(EqualityComparer<TInput>.Default.Equals(input, default(TInput)))
             {
                 output.Status = "Invalid arguments";

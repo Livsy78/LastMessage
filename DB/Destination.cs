@@ -34,9 +34,9 @@ namespace LastMessage.DB
         DISABLED,
     }
 
-    public enum DestinationType
+    public enum DestinationType // used .ToString() for showing to user
     {
-        EMAIL,
+        Email,
         SMS,
     }
 

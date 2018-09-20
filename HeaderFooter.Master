@@ -9,7 +9,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
     <link rel="icon" href="img/letter-hourglass.png" />
-    <title>Last Message</title>
 
 
 <!--
@@ -34,6 +33,8 @@
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+
+    <title>Last Message</title>
 
 </head>
 
