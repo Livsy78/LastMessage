@@ -46,6 +46,9 @@
                             <%# Eval("Destinations") %>
                         </td>
                         <td style="width:25px;">
+                            <img class="cursor-pointer mr-1" src="img/edit25x25.png"/>
+                        </td>
+                        <td style="width:25px;">
                             <img class="cursor-pointer mr-1" src="img/remove25x25.png"/>
                         </td>
                     </tr>
@@ -53,6 +56,8 @@
             </asp:Repeater>
 
             <tr>
+                <td>
+                </td>
                 <td>
                 </td>
                 <td>

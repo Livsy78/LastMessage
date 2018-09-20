@@ -50,6 +50,11 @@
                     2m 23d 14:53:18
                 </td>
                 <td style="width:25px;">
+                    <a class="Message_EditLink" href="#">
+                        <img class="cursor-pointer mr-1" src="img/edit25x25.png"/>
+                    </a>
+                </td>
+                <td style="width:25px;">
                     <img class="cursor-pointer mr-1" src="img/remove25x25.png"/>
                 </td>
             </tr>
@@ -71,7 +76,9 @@
                     &nbsp;
                 </td>
                 <td style="width:25px;">
-                    <img class="cursor-pointer mt-2 mr-1" src="img/add25x25.png"/>
+                </td>
+                <td style="width:25px;">
+                        <img class="cursor-pointer mt-2 mr-1" src="img/add25x25.png"/>
                 </td>
             </tr>
             
@@ -137,6 +144,9 @@
 
                     messageElem.find(".Message_Timer")
                         .html(FormatTime(msg.SendIn_Seconds));
+
+                    messageElem.find(".Message_EditLink")
+                        .attr("href", "EditMessage.aspx?ID=" + msg.MessageID);
 
                     messageElem.show();
                 }
