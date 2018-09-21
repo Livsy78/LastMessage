@@ -21,7 +21,7 @@ namespace LastMessage.DB
         public int UserID { get; set; }
         
         [Column(IsPrimaryKey = false, CanBeNull = false, DbType = "int", IsDbGenerated = false)]
-        public int SendIn_Days { get; set; }
+        public int SendIn_Hours { get; set; }
 
         [Column(IsPrimaryKey = false, CanBeNull = false, DbType = "datetime", IsDbGenerated = false)]
         public DateTime SendTime { get; set; }
@@ -31,6 +31,10 @@ namespace LastMessage.DB
 
         [Column(IsPrimaryKey = false, CanBeNull = false, DbType = "nvarchar(MAX)", IsDbGenerated = false)]
         public string  Text { get; set; }
+
+        [Column(IsPrimaryKey = false, CanBeNull = false, DbType = "int", IsDbGenerated = false)]
+        public int NotifyBefore_Hours { get; set; }
+    
     }
 
     public enum MessageStatus

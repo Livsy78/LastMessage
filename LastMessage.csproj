@@ -66,6 +66,7 @@
     <Content Include="Home.aspx" />
     <Content Include="img\add25x25.png" />
     <Content Include="img\dot.png" />
+    <Content Include="img\edit25x25.png" />
     <Content Include="img\favicon-16x16.png" />
     <Content Include="img\favicon.ico" />
     <Content Include="img\imok.png" />
@@ -73,6 +74,7 @@
     <Content Include="img\palette\palette-mockup.png" />
     <Content Include="img\palette\palette-short.png" />
     <Content Include="img\palette\palette.png" />
+    <Content Include="img\palette\palette.url.txt" />
     <Content Include="img\pointer-finger.png" />
     <Content Include="img\remove25x25.png" />
     <Content Include="img\ResetButton.png" />
@@ -711,7 +713,9 @@
       <DependentUpon>LastMessage.dbml</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="img\status\" />
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Messages.resx">
       <Generator>ResXFileCodeGenerator</Generator>

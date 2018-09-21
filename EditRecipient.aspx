@@ -16,7 +16,7 @@
 
     <form id="EditRecipientForm" style="text-align:center;" runat="server">
 
-        <h5>Recipient for message &laquo;<span id="MessageTitle">Title</span>&raquo; :</h5>
+        <h5>Recipient for message &laquo;<span id="MessageTitle"><%= CurrentMessage.Title %></span>&raquo; :</h5>
         <div style="height:15px;"></div>
 
         <input type="text" id="editName" class="form-control mb-3" placeholder="Name" required autofocus />

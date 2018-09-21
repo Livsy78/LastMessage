@@ -29,7 +29,7 @@ namespace LastMessage.WebServices
                     {
                         destinations += "<br/>";
                     }
-                    destinations += string.Format("<i>{0}:</i> {1}", destination.Type.ToString(), destination.Address);
+                    destinations += string.Format("<b>{0}:</b> {1}", destination.Type.ToString(), destination.Address);
                 }
 
                 items.Add(new GetRecipientList_OutputItem()
@@ -44,7 +44,7 @@ namespace LastMessage.WebServices
 
             output.TotalItems = items.Count();
             output.Items = items
-                //.OrderBy(r=>)
+                 //.OrderBy(r=>)
                 .ToArray();
             return output;
         }

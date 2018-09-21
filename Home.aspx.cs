@@ -27,7 +27,7 @@ namespace LastMessage
             DateTime now = DateTime.Now;
             foreach(DB.Message message in messages)
             {
-                message.SendTime = now.AddDays(message.SendIn_Days);
+                message.SendTime = now.AddHours(message.SendIn_Hours);
                 message.Save();
             }
         }

@@ -295,6 +295,8 @@ namespace LastMessage.DB.dbml
 		
 		private string _Text;
 		
+		private int _NotifyBefore_Hours;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -305,14 +307,16 @@ namespace LastMessage.DB.dbml
     partial void OnStatusChanged();
     partial void OnUserIDChanging(int value);
     partial void OnUserIDChanged();
-    partial void OnSendIn_DaysChanging(int value);
-    partial void OnSendIn_DaysChanged();
+    partial void OnSendIn_HoursChanging(int value);
+    partial void OnSendIn_HoursChanged();
     partial void OnSendTimeChanging(System.DateTime value);
     partial void OnSendTimeChanged();
     partial void OnTitleChanging(string value);
     partial void OnTitleChanged();
     partial void OnTextChanging(string value);
     partial void OnTextChanged();
+    partial void OnNotifyBefore_HoursChanging(int value);
+    partial void OnNotifyBefore_HoursChanged();
     #endregion
 		
 		public Message()
@@ -381,7 +385,7 @@ namespace LastMessage.DB.dbml
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="SendInDays", Storage="_SendIn_Days", DbType="int")]
-		public int SendIn_Days
+		public int SendIn_Hours
 		{
 			get
 			{
@@ -391,11 +395,11 @@ namespace LastMessage.DB.dbml
 			{
 				if ((this._SendIn_Days != value))
 				{
-					this.OnSendIn_DaysChanging(value);
+					this.OnSendIn_HoursChanging(value);
 					this.SendPropertyChanging();
 					this._SendIn_Days = value;
-					this.SendPropertyChanged("SendIn_Days");
-					this.OnSendIn_DaysChanged();
+					this.SendPropertyChanged("SendIn_Hours");
+					this.OnSendIn_HoursChanged();
 				}
 			}
 		}
@@ -456,6 +460,26 @@ namespace LastMessage.DB.dbml
 					this._Text = value;
 					this.SendPropertyChanged("Text");
 					this.OnTextChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NotifyBefore_Hours", DbType="int")]
+		public int NotifyBefore_Hours
+		{
+			get
+			{
+				return this._NotifyBefore_Hours;
+			}
+			set
+			{
+				if ((this._NotifyBefore_Hours != value))
+				{
+					this.OnNotifyBefore_HoursChanging(value);
+					this.SendPropertyChanging();
+					this._NotifyBefore_Hours = value;
+					this.SendPropertyChanged("NotifyBefore_Hours");
+					this.OnNotifyBefore_HoursChanged();
 				}
 			}
 		}

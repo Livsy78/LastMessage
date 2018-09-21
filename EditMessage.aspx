@@ -18,22 +18,28 @@
 
   <div style="">
 
-    <form id="EditMessageForm" style="text-align:center;" runat="server">
+    <form id="EditMessageForm" style="text-align:center;" runat="server" defaultbutton="btnOk">
 
         <h5>Your message</h5>
 
-        <input type="text" id="editTitle" class="form-control mb-1" placeholder="Title" required />
+        <asp:TextBox ID="editTitle" CssClass="form-control mb-1"  runat="server" placeholder="Title" required MaxLength="64"></asp:TextBox>
 
-        <textarea id="editMessage" class="form-control" placeholder="Message"></textarea>
+        <asp:TextBox ID="editMessage" CssClass="form-control" TextMode="MultiLine" runat="server" placeholder="Message" required ></asp:TextBox>
 
         <br/>
 
         <h5>Send In:</h5>
 
-        <select class="form-control">
-            <option>1 day</option>
-            <option>7 days</option>
-        </select>
+        <asp:DropDownList ID="ddlSendIn" CssClass="form-control" runat="server">
+            <asp:ListItem Value="3">3 hours</asp:ListItem>
+            <asp:ListItem Value="12">12 hours</asp:ListItem>
+            <asp:ListItem Value="24">1 day</asp:ListItem>
+            <asp:ListItem Value="72">3 days</asp:ListItem>
+            <asp:ListItem Value="168">1 week</asp:ListItem>
+            <asp:ListItem Value="336">2 weeks</asp:ListItem>
+            <asp:ListItem Value="672">1 month</asp:ListItem>
+            <asp:ListItem Value="2184">3 months</asp:ListItem>
+        </asp:DropDownList>
 
         <br/>
 
@@ -44,13 +50,17 @@
                  <ItemTemplate>
                     <tr style="border-bottom:solid; border-bottom-color:#b6bbcc; border-bottom-width:1px;">
                         <td>
-                            <%# Eval("Name") %>
+                            <a href="EditRecipient.aspx?ID=<%# Eval("RecipientID") %>" class="plt-3">
+                                <%# Eval("Name") %>
+                            </a>
                         </td>
                         <td style="text-align:left;">
                             <%# Eval("Destinations") %>
                         </td>
                         <td style="width:25px;">
-                            <img class="cursor-pointer mr-1" src="img/edit25x25.png"/>
+                            <a href="EditRecipient.aspx?ID=<%# Eval("RecipientID") %>">
+                                <img class="cursor-pointer mr-1" src="img/edit25x25.png"/>
+                            </a>
                         </td>
                         <td style="width:25px;">
                             <img class="cursor-pointer mr-1" src="img/remove25x25.png"/>
@@ -76,17 +86,21 @@
         <br/>
         <h5>Notify me before:</h5>
 
-        <select class="form-control">
-            <option>Don't notify</option>
-            <option>1 day</option>
-            <option>7 days</option>
-        </select>
+        <asp:DropDownList ID="ddlNotifyBefore" CssClass="form-control" runat="server">
+            <asp:ListItem Value="0">Don't notify</asp:ListItem>
+            <asp:ListItem Value="1">1 hour</asp:ListItem>
+            <asp:ListItem Value="3">3 hours</asp:ListItem>
+            <asp:ListItem Value="12">12 hours</asp:ListItem>
+            <asp:ListItem Value="24">1 day</asp:ListItem>
+            <asp:ListItem Value="72">3 days</asp:ListItem>
+            <asp:ListItem Value="168">1 week</asp:ListItem>
+        </asp:DropDownList>
 
         <br/>
 
-        <button type="submit" class="btn btn-lg plt-1 pltbg-3 btn-block btn-shdw mb-3">Ok</button>
+        <asp:Button ID="btnOk" CssClass="btn btn-lg plt-1 pltbg-3 btn-block btn-shdw mb-3" runat="server" Text="OK" OnClick="btnOk_Click" />
  
-        <button type="button" class="btn btn-lg plt-1 pltbg-3 btn-block btn-shdw mb-3">Cancel</button>
+        <asp:Button ID="btnCancel" CssClass="btn btn-lg plt-1 pltbg-3 btn-block btn-shdw mb-3" runat="server" Text="Cancel" OnClick="btnCancel_Click" UseSubmitBehavior="False" />
 
     </form>
 

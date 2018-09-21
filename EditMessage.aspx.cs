@@ -21,7 +21,15 @@ namespace LastMessage
                     throw new Exception();
                 }
 
-                UpdateRecipientList(message.ID);
+                if(!IsPostBack)
+                {
+                    editTitle.Text = message.Title;
+                    editMessage.Text = message.Text;
+                    ddlSendIn.SelectedValue = message.SendIn_Hours.ToString();
+                    ddlNotifyBefore.SelectedValue = message.NotifyBefore_Hours.ToString();
+
+                    UpdateRecipientList(message.ID);
+                }
 
             }
             catch
@@ -39,11 +47,34 @@ namespace LastMessage
                 .GetData(new WebServices.GetRecipientList_Input() 
                 {
                     MessageID = messageID,
-                });
+                }
+            );
 
             rptRecipientList.DataSource = data.Items;
             rptRecipientList.DataBind();
 
+        }
+
+        protected void btnOk_Click(object sender, EventArgs e)
+        {
+            DB.Message message = DB.Message.Get(int.Parse(Request.QueryString["ID"]));
+
+            message.Title = editTitle.Text;
+            message.Text = editMessage.Text;
+            message.SendIn_Hours = int.Parse(ddlSendIn.SelectedValue);
+            message.NotifyBefore_Hours = int.Parse(ddlNotifyBefore.SelectedValue);
+
+            // reset timer
+            message.SendTime = DateTime.Now.AddHours(message.SendIn_Hours);
+
+            message.Save();
+
+            Response.Redirect("Home.aspx");
+        }
+
+        protected void btnCancel_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Home.aspx");
         }
 
 
