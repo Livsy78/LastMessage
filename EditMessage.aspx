@@ -20,7 +20,7 @@
 
     <form id="EditMessageForm" style="text-align:center;" runat="server" defaultbutton="btnOk">
 
-        <h5>Your message</h5>
+        <h5>Your message:</h5>
 
         <asp:TextBox ID="editTitle" CssClass="form-control mb-1"  runat="server" placeholder="Title" required MaxLength="64"></asp:TextBox>
 

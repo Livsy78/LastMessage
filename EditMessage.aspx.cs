@@ -64,7 +64,7 @@ namespace LastMessage
             message.SendIn_Hours = int.Parse(ddlSendIn.SelectedValue);
             message.NotifyBefore_Hours = int.Parse(ddlNotifyBefore.SelectedValue);
 
-            // reset timer
+            // reset timer // TODO? RESET ALL ?????
             message.SendTime = DateTime.Now.AddHours(message.SendIn_Hours);
 
             message.Save();

@@ -10,9 +10,8 @@
   <div style="">
 
         <div style=""> <!-- TODO: BACKGROUND MILITARY IMAGE IN THEME COLOR; SHADOWED FONT -->
-            <h5> Getting risk on your life? </h5> 
-            This service is for you!
-            How it works:
+            <h5> Getting RISK on your life? This service is for you!</h5>
+            <b>How it works:</b>
             <table>
                 <tr>
                     <td style="width:16px; vertical-align:top;">
@@ -27,7 +26,17 @@
                         <img src="img/dot.png"/>
                     </td>
                     <td>
-                        Set up one or more messages, timeout to send, and recipient
+                        Set up one or more messages, timeout to send, and recipient(s)
+                    </td>
+                </tr>
+                <tr>
+                    <td style="vertical-align:top;">
+                        <img src="img/dot.png"/>
+                    </td>
+                    <td>
+                        <b>Get the risk on your life.</b>
+                        <br/>
+                        If something will happen with you <i>(oh no God!)</i> and you will NOT be able to reset timers, the messages will be send to the specified recipients when timeout will expire.
                     </td>
                 </tr>
                 <tr>
@@ -40,24 +49,14 @@
                         <i>Note:</i> You will get notification about timeout going to be expired
                     </td>
                 </tr>
-                <tr>
-                    <td style="vertical-align:top;">
-                        <img src="img/dot.png"/>
-                    </td>
-                    <td>
-                        Get the risk on your life.
-                        <br/>
-                        If something will happen with you (oh no God!) and you will NOT be able to reset timers, the messages will be send to the specified recipients when timeout will expire.
-                    </td>
-                </tr>
             </table>
         </div>
 
-        <h5 class="mt-4"> So it's time to </h5>
 
         <!-- Register form -->
         <form id="RegisterForm" style="text-align:center;" onsubmit="RegisterForm_OnSubmit(); return false;">
-            <h5>Sign Up</h5>
+            <b style="text-align:left;">It's really easy and it works!</b>
+            <h5 class="mt-3">Sign Up</h5>
             <input type="email" id="editEmail_Register" class="form-control mb-1" placeholder="Email address" required />
             <input type="text" id="editName_Register" class="form-control mb-1" placeholder="Name" required />
             <input type="password" id="editPassword_Register" class="form-control mb-1" placeholder="Password" required />
@@ -130,7 +129,7 @@
 
         <!-- Login form -->
         <form id="LoginForm" style="text-align:center; display:none;" onsubmit="LoginForm_OnSubmit(); return false;">
-            <h5>Sign In</h5>
+            <h5 class="mt-3">Sign In</h5>
             <input type="email" id="editEmail_Login" class="form-control mb-1" placeholder="Email address" required autofocus />
             <input type="password" id="editPassword_Login" class="form-control mb-1" placeholder="Password" required />
             <a href="PasswordForgot.aspx" class="plt-3" style="float:right; font-size:12px;"> Forgot password? </a>
@@ -155,6 +154,8 @@
                 {
                     $("#LoginForm").hide();
                     $("#RegisterForm").show();
+
+                    $("#editEmail_Register").focus();
                 }
 
                 

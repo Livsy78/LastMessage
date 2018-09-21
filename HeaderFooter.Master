@@ -39,42 +39,45 @@
 </head>
 
 <body>
-    <div class="body">
+    <div class="body mywidth">
 
-<!-- HEADER START -->
-    <div class="pltbg-0" style="margin:auto; height:30px;">
-        <a href="." class="navbar-link plt-1 ml-3"> HOME </a>
+    <!-- HEADER START -->
+        <div class="pltbg-0 mywidth" style="margin: 0px auto; height:30px; position:fixed; top:0px; bottom:30px; " >
+
+            <a href="." class="navbar-link plt-1 ml-3"> HOME </a>
         
 
-        <div style="float:right; display:<%=HttpContext.Current.User.Identity.IsAuthenticated?"block":"none"%>; ">
-            <div class="plt-1" style="display:inline;" > &nbsp; | &nbsp; </div>
-            <a href="EditAccount.aspx" id="Header_btnEditAccount" class="navbar-link plt-1" > My Profile </a>
-            <div class="plt-1" style="display:inline;" > &nbsp; | &nbsp; </div>
-            <a href="Logout.aspx" id="Header_btnLogout" class="navbar-link plt-1 mr-3"> Sign Out </a>
+            <div style="float:right; display:<%=HttpContext.Current.User.Identity.IsAuthenticated?"block":"none"%>; ">
+                <div class="plt-1" style="display:inline;" > &nbsp; | &nbsp; </div>
+                <a href="EditAccount.aspx" id="Header_btnEditAccount" class="navbar-link plt-1" > My Profile </a>
+                <div class="plt-1" style="display:inline;" > &nbsp; | &nbsp; </div>
+                <a href="Logout.aspx" id="Header_btnLogout" class="navbar-link plt-1 mr-3"> Sign Out </a>
+            </div>
+
+            <select class="navbar-dropdown navbar-link plt-1 pltbg-0 p-1" style="float:right;          display:none;">
+                <option value="EN" style="background-image:url(img/dot.png);">EN</option> <!-- img FLAG fail..? -->
+                <option value="UA">UA</option>
+            </select>
+
         </div>
 
-        <select class="navbar-dropdown navbar-link plt-1 pltbg-0 p-1" style="float:right;">
-            <option value="EN" style="background-image:url(img/dot.png);">EN</option> <!-- img FLAG fail..? -->
-            <option value="UA">UA</option>
-        </select>
+        <div style="height:30px;"></div>
+    <!-- HEADER END -->
 
-    </div>
-<!-- HEADER END -->
-
-    <div style="padding:20px 20px 20px 20px;">
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder" runat="server">
-        </asp:ContentPlaceHolder>
-    </div>    
+        <div style="padding:20px 20px 20px 20px;">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>    
 
 
-<!-- FOOTER START -->
-    <div class="pltbg-0" style="margin:auto; height:30px;   display:flex; justify-content:space-evenly;">
-        <a href="#" class="navbar-link plt-1"> About me </a>
-        <a href="#" class="navbar-link plt-1"> Contact me </a>
-        <a href="#" class="navbar-link plt-1"> Privacy policy </a>
-        <a href="#" class="navbar-link plt-1"> Terms of use </a>
-    </div>
-<!-- FOOTER END -->
+    <!-- FOOTER START -->
+        <div class="pltbg-0" style="margin:auto; height:30px;   display:flex; justify-content:space-evenly;">
+            <a href="#" class="navbar-link plt-1"> About me </a>
+            <a href="#" class="navbar-link plt-1"> Contact me </a>
+            <a href="#" class="navbar-link plt-1"> Privacy policy </a>
+            <a href="#" class="navbar-link plt-1"> Terms of use </a>
+        </div>
+    <!-- FOOTER END -->
 
     </div>
 

@@ -1,3 +1,18 @@
+.mywidth
+{
+    width:100%;
+}
+
+
+
+@media (min-width: 600px) 
+{
+    .mywidth
+    {
+        width:600px;
+    }
+}
+
 
 .body 
 {
@@ -6,16 +21,7 @@
     box-shadow: 0 0 6px rgba(0,0,0,0.5); 
     /* font-size:19px; */
 }
-
-@media (min-width: 600px) 
-{
-    .body 
-    {
-        width:600px;
-    }
-}
-
-
+ 
 .navbar-link , .navbar-link-active
 {
     padding: 5px 0px 5px 0px;
