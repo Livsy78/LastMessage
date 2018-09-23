@@ -55,7 +55,7 @@ namespace LastMessage
 
         }
 
-        protected void btnOk_Click(object sender, EventArgs e)
+        protected void btnSave_Click(object sender, EventArgs e)
         {
             DB.Message message = DB.Message.Get(int.Parse(Request.QueryString["ID"]));
 
@@ -72,7 +72,7 @@ namespace LastMessage
             Response.Redirect("Home.aspx");
         }
 
-        protected void btnCancel_Click(object sender, EventArgs e)
+        protected void btnBack_Click(object sender, EventArgs e)
         {
             Response.Redirect("Home.aspx");
         }

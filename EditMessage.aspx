@@ -16,11 +16,16 @@
 
 <asp:Content ID="Content1" runat="server" ContentPlaceHolderID="ContentPlaceHolder">
 
-  <div style="">
+    <form id="EditMessageForm" style="text-align:center;" runat="server" defaultbutton="btnSave">
 
-    <form id="EditMessageForm" style="text-align:center;" runat="server" defaultbutton="btnOk">
+        <div class="mywidth-inner" style="position:fixed; top:32px;">
+            <asp:Button ID="btnBack" runat="server" Text="< Back" CssClass="btn plt-1 pltbg-3 btn-shdw btn-back" OnClick="btnBack_Click"/>
+            <asp:Button ID="btnSave" runat="server" Text="&nbsp;&nbsp;&nbsp;Save" CssClass="btn plt-1 pltbg-3 btn-shdw btn-save" OnClick="btnSave_Click"/>
+        </div>
+        <div style=""> </div>
 
-        <h5>Your message:</h5>
+
+        <h5>Message:</h5>
 
         <asp:TextBox ID="editTitle" CssClass="form-control mb-1"  runat="server" placeholder="Title" required MaxLength="64"></asp:TextBox>
 
@@ -37,7 +42,7 @@
             <asp:ListItem Value="72">3 days</asp:ListItem>
             <asp:ListItem Value="168">1 week</asp:ListItem>
             <asp:ListItem Value="336">2 weeks</asp:ListItem>
-            <asp:ListItem Value="672">1 month</asp:ListItem>
+            <asp:ListItem Value="720">1 month</asp:ListItem>
             <asp:ListItem Value="2184">3 months</asp:ListItem>
         </asp:DropDownList>
 
@@ -98,12 +103,8 @@
 
         <br/>
 
-        <asp:Button ID="btnOk" CssClass="btn btn-lg plt-1 pltbg-3 btn-block btn-shdw mb-3" runat="server" Text="OK" OnClick="btnOk_Click" />
- 
-        <asp:Button ID="btnCancel" CssClass="btn btn-lg plt-1 pltbg-3 btn-block btn-shdw mb-3" runat="server" Text="Cancel" OnClick="btnCancel_Click" UseSubmitBehavior="False" />
 
     </form>
 
-  </div>
 
 </asp:Content>

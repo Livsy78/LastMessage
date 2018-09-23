@@ -42,7 +42,7 @@
     <div class="body mywidth">
 
     <!-- HEADER START -->
-        <div class="pltbg-0 mywidth" style="margin: 0px auto; height:30px; position:fixed; top:0px; bottom:30px; " >
+        <div class="pltbg-0 mywidth" style="margin: 0px auto; height:30px; position:fixed; top:0px;  " >
 
             <a href="." class="navbar-link plt-1 ml-3"> HOME </a>
         
