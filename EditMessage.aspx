@@ -19,7 +19,7 @@
     <form id="EditMessageForm" style="text-align:center;" runat="server" defaultbutton="btnSave">
 
         <div class="mywidth-inner" style="position:fixed; top:32px;">
-            <asp:Button ID="btnBack" runat="server" Text="< Back" CssClass="btn plt-1 pltbg-3 btn-shdw btn-back" OnClick="btnBack_Click"/>
+            <asp:Button ID="btnBack" runat="server" Text="&nbsp;&nbsp;&nbsp;Back" CssClass="btn plt-1 pltbg-3 btn-shdw btn-back" OnClick="btnBack_Click"/>
             <asp:Button ID="btnSave" runat="server" Text="&nbsp;&nbsp;&nbsp;Save" CssClass="btn plt-1 pltbg-3 btn-shdw btn-save" OnClick="btnSave_Click"/>
         </div>
         <div style=""> </div>
