@@ -16,10 +16,9 @@
             
             <input type="email" id="editEmail_PasswordForgot" class="form-control mt-5 mb-5" placeholder="Email address" required autofocus />
 
-            <div id="messagePasswordForgot" class="error-box mb-1">
-            </div>
+            <div id="messagePasswordForgot" class="error-box mb-1" style="display:none;"> </div>
 
-            <button type="submit" class="btn btn-lg plt-1 pltbg-3 btn-block mb-5 mt-5"> Send Email </button>
+            <button type="submit" class="btn btn-lg plt-1 pltbg-3 btn-block mb-5 mt-3"> Send Email </button>
         
             <script>
 
