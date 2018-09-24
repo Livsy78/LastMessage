@@ -12,7 +12,7 @@ namespace LastMessage.DB
     public class Log : BaseTemplate<Log>
     {
         [Column(IsPrimaryKey = true, CanBeNull = false, DbType = "int", IsDbGenerated = true)]
-        private int ID { get; set; }
+        public int ID { get; set; }
 
         [Column(IsPrimaryKey = false, CanBeNull = false, DbType = "int", IsDbGenerated = false)]
         public int UserID { get; set; }
