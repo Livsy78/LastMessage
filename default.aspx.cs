@@ -15,6 +15,13 @@ namespace LastMessage
             {
                 Response.Redirect("Home.aspx");
             }
+/**/
+            else
+            {
+                Response.Redirect("Register.aspx");
+            }
+/**/
+
         }
     }
 

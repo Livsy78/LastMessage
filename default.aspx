@@ -67,7 +67,7 @@
                 </label>
             </div>
 
-            <div id="messageRegister" class="error-box mb-1">
+            <div id="messageRegister" class="error-box mb-1" style="display:none;">
             </div>
 
             <button type="submit" class="btn btn-lg plt-1 pltbg-3 btn-block btn-shdw mb-3">Sign Up</button>
@@ -99,6 +99,8 @@
                     
                     // TODO: wait screen
                     
+                    /*DBG*/ console.log("-- Sending: " + JSON.stringify(input));
+
                     $.post("WebServices/Register.aspx", JSON.stringify(input), "json")
                     .done(function(output) 
                     {
@@ -119,6 +121,7 @@
                     .fail(function(output) 
                     {
                         $("#messageRegister").text("Can't send request, please try again").show();
+                        console.log("-- Sending request FAILED --");
                         console.log(output);
                     })
                     ;
@@ -139,7 +142,7 @@
                 </label>
             </div>
 
-            <div id="messageLogin" class="error-box mb-1">
+            <div id="messageLogin" class="error-box mb-1" style="display:none;">
             </div>
 
             <button type="submit" class="btn btn-lg plt-1 pltbg-3 btn-block btn-shdw mb-3">Sign In</button>

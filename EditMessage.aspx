@@ -27,23 +27,23 @@
 
         <h5>Message:</h5>
 
-        <asp:TextBox ID="editTitle" CssClass="form-control mb-1"  runat="server" placeholder="Title" required MaxLength="64"></asp:TextBox>
+        <asp:TextBox ID="editTitle" CssClass="form-control mb-1"  runat="server" placeholder="Title" MaxLength="64" required></asp:TextBox>
 
-        <asp:TextBox ID="editMessage" CssClass="form-control" TextMode="MultiLine" runat="server" placeholder="Message" required ></asp:TextBox>
+        <asp:TextBox ID="editMessage" CssClass="form-control" TextMode="MultiLine" runat="server" placeholder="Message" required></asp:TextBox>
 
         <br/>
 
         <h5>Send In:</h5>
 
         <asp:DropDownList ID="ddlSendIn" CssClass="form-control" runat="server">
-            <asp:ListItem Value="3">3 hours</asp:ListItem>
-            <asp:ListItem Value="12">12 hours</asp:ListItem>
-            <asp:ListItem Value="24">1 day</asp:ListItem>
-            <asp:ListItem Value="72">3 days</asp:ListItem>
-            <asp:ListItem Value="168">1 week</asp:ListItem>
-            <asp:ListItem Value="336">2 weeks</asp:ListItem>
-            <asp:ListItem Value="720">1 month</asp:ListItem>
-            <asp:ListItem Value="2184">3 months</asp:ListItem>
+            <asp:ListItem Value="3">    3 hours  </asp:ListItem>
+            <asp:ListItem Value="12">   12 hours </asp:ListItem>
+            <asp:ListItem Value="24">   1 day    </asp:ListItem>
+            <asp:ListItem Value="72">   3 days   </asp:ListItem>
+            <asp:ListItem Value="168">  1 week   </asp:ListItem>
+            <asp:ListItem Value="336">  2 weeks  </asp:ListItem>
+            <asp:ListItem Value="720">  1 month  </asp:ListItem>
+            <asp:ListItem Value="2184"> 3 months </asp:ListItem>
         </asp:DropDownList>
 
         <br/>
@@ -103,8 +103,6 @@
 
         <br/>
 
-
     </form>
-
 
 </asp:Content>

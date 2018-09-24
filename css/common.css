@@ -61,7 +61,8 @@ a.navbar-link:hover, a.navbar-link:active , .navbar-link-active
 
 .error-box
 {
-    display:none; 
+    /*display:none;*/
+    display:block;     /* for asp:Label which translates to <span> FFS */
     height:35px; 
     width:100%; 
     vertical-align:central; 

@@ -65,12 +65,15 @@
     <Content Include="EditRecipient.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="img\add25x25.png" />
+    <Content Include="img\back25x25.png" />
     <Content Include="img\dot.png" />
     <Content Include="img\edit25x25.png" />
+    <Content Include="img\edit25x25_1.png" />
     <Content Include="img\favicon-16x16.png" />
     <Content Include="img\favicon.ico" />
     <Content Include="img\imok.png" />
     <Content Include="img\letter-hourglass.png" />
+    <Content Include="img\ok25x25.png" />
     <Content Include="img\palette\palette-mockup.png" />
     <Content Include="img\palette\palette-short.png" />
     <Content Include="img\palette\palette.png" />
@@ -290,6 +293,7 @@
     <Content Include="Message.aspx" />
     <Content Include="PasswordForgot.aspx" />
     <Content Include="PasswordReset.aspx" />
+    <Content Include="Register.aspx" />
     <Content Include="TestPage.aspx" />
     <Content Include="Web.config" />
     <Content Include="WebServices\GetMessageList.aspx" />
@@ -382,6 +386,13 @@
       <DependentUpon>PasswordReset.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
     <Compile Include="TestPage.aspx.cs">
       <DependentUpon>TestPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
