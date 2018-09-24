@@ -289,6 +289,7 @@
     <Content Include="libs\popper\umd\popper.js" />
     <Content Include="libs\popper\umd\popper.min.js" />
     <Content Include="css\palette.css" />
+    <Content Include="Login.aspx" />
     <Content Include="Logout.aspx" />
     <Content Include="Message.aspx" />
     <Content Include="PasswordForgot.aspx" />
@@ -351,6 +352,13 @@
     </Compile>
     <Compile Include="Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Logout.aspx.cs">
       <DependentUpon>Logout.aspx</DependentUpon>

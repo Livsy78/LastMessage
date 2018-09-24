@@ -61,6 +61,15 @@ namespace LastMessage {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error! Contact admin.
+        /// </summary>
+        internal static string PageError {
+            get {
+                return ResourceManager.GetString("PageError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Email not found.
         /// </summary>
         internal static string PasswordResetEmailNotFound {

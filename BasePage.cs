@@ -32,5 +32,19 @@ namespace LastMessage
         }
 
 
+        protected void Page_Error(object sender, EventArgs e)
+        {
+            Exception ex = Server.GetLastError();
+
+            //lblMessage.Text = ex.Message;  // page will no be generated...
+            //lblMessage.Visible = true;
+
+            Server.ClearError();
+
+            //base.Page_Error(sender, e);
+            Response.Redirect("Message.aspx?ID=PageError&link=.");
+        }
+
+
     }
 }

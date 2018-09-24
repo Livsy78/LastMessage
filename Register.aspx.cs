@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace LastMessage
 {
-    public partial class Register : System.Web.UI.Page
+    public partial class Register : BasePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -41,8 +41,7 @@ namespace LastMessage
 
                 // TODO? focus, was implemented for default.aspx... see data.FocusID
             }
-
-
         }
+
     }
 }
