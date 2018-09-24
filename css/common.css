@@ -63,14 +63,17 @@ a.navbar-link:hover, a.navbar-link:active , .navbar-link-active
 {
     /*display:none;*/
     display:block;     /* for asp:Label which translates to <span> FFS */
-    height:35px; 
+    
+    /*height:35px;*/
+    padding: 10px 0px 10px 0px;
+    /*padding: 4px 0px 0px 0px;*/
+    
     width:100%; 
     vertical-align:central; 
     /*box-shadow: 0 0 3px rgba(0,0,0,0.5);*/
     border-radius: 4px;
     color:white; 
     background-color:red;
-    padding: 4px 0px 0px 0px;
 }
 
 .btn-shdw

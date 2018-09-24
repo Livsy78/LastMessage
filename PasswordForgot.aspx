@@ -7,60 +7,18 @@
 
 <asp:Content ID="Content1" runat="server" ContentPlaceHolderID="ContentPlaceHolder">
 
-    <div style="">
 
-        <form id="PasswordForgotForm" style="text-align:center;" onsubmit="PasswordForgotForm_OnSubmit(); return false;">
+    <form id="PasswordForgotForm" style="text-align:center;" runat="server" defaultbutton="btnSendEmail">
             
-            <br/>
-            <h5>Forgot password</h5>
+        <h5>Forgot password</h5>
             
-            <input type="email" id="editEmail_PasswordForgot" class="form-control mt-5 mb-5" placeholder="Email address" required autofocus />
+        <asp:TextBox ID="editEmail" CssClass="form-control mt-3 mb-4" runat="server" TextMode="Email" placeholder="Email address" required autofocus></asp:TextBox>
 
-            <div id="messagePasswordForgot" class="error-box mb-1" style="display:none;"> </div>
+        <asp:Label ID="lblMessage" runat="server" Text="" Visible="false" CssClass="error-box mt-1 mb-1"></asp:Label>
 
-            <button type="submit" class="btn btn-lg plt-1 pltbg-3 btn-block mb-5 mt-3"> Send Email </button>
+        <asp:Button ID="btnSendEmail" runat="server" Text="Send Email" CssClass="btn btn-lg plt-1 pltbg-3 btn-block btn-shdw mt-4 mb-3" OnClick="btnSendEmail_Click" />
         
-            <script>
+    </form>
 
-                function PasswordForgotForm_OnSubmit()
-                {
-                    var input = 
-                    {
-                        Email : $("#editEmail_PasswordForgot").val(),
-                    };
-
-                    // TODO: wait screen
-
-                    $.post("WebServices/PasswordForgot.aspx", JSON.stringify(input), "json")
-                    .done(function(output) 
-                    {
-                        if(output.Status=="OK")
-                        {
-                            window.location.href="Message.aspx?ID=PasswordResetEmailSent";
-                        }
-                        else
-                        {
-                            $("#messagePasswordForgot")
-                                .text(output.Status)
-                                .show();
-                            
-                            $("#editEmail_PasswordForgot")
-                                .focus();
-                        }
-                    })
-                    .fail(function(output) 
-                    {
-                        $("#messagePasswordForgot").text("Can't send request, please try again").show();
-                        console.log(output);
-                    })
-                    ;
-
-                }
-
-            </script>
-
-        </form>
-
-    </div>
 
 </asp:Content>

@@ -31,13 +31,13 @@ namespace LastMessage.WebServices
                 // create token
                 Guid token = Guid.NewGuid();
                 int expireMinutes = int.Parse(ConfigurationManager.AppSettings["PasswordReset.TokenTimeoutMinutes"]);
-                Cache.Insert("PASSWORD_RESET_TOKEN_"+token.ToString(), user.Email, null, DateTime.Now.AddMinutes(expireMinutes), System.Web.Caching.Cache.NoSlidingExpiration);
+                HttpContext.Current.Cache.Insert("PASSWORD_RESET_TOKEN_"+token.ToString(), user.Email, null, DateTime.Now.AddMinutes(expireMinutes), System.Web.Caching.Cache.NoSlidingExpiration);
 
                 // send email
                 try
                 {
                     
-                    string emailTemplate = File.ReadAllText(Server.MapPath("PasswordForgot.EmailTemplate"));
+                    string emailTemplate = File.ReadAllText(Server.MapPath("~/WebServices/PasswordForgot.EmailTemplate"));
 
                     // string link = "http://" /*TODO: SSL?? NO, auto-forced for this page //https:// */ + Request.Url.Host + "/PasswordReset.aspx?token="+token.ToString();
                     string link = Request.Url.Host + "/PasswordReset.aspx?token="+token.ToString();
