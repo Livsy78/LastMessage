@@ -51,7 +51,7 @@
         <h5>Send To:</h5>
             
         <table id="RecipientList" style="width:100%; line-height:18px;" class="mt-3">
-            <asp:Repeater ID="rptRecipientList" runat="server">
+            <asp:Repeater ID="rptRecipientList" runat="server" OnItemCommand="rptRecipientList_ItemCommand">
                  <ItemTemplate>
                     <tr style="border-bottom:solid; border-bottom-color:#b6bbcc; border-bottom-width:1px;">
                         <td>
@@ -68,7 +68,13 @@
                             </a>
                         </td>
                         <td style="width:25px;">
-                            <img class="cursor-pointer mr-1" src="img/delete25x25.png"/>
+                            <asp:ImageButton ID="btnDeleteRecipient" runat="server"  
+                                ImageUrl="~/img/delete25x25.png" 
+                                CommandName="delete" 
+                                CommandArgument='<%# Eval("RecipientID") %>' 
+                                OnClientClick="javascript:return confirm('Are you sure you want to delete this recipient?');"
+                            />
+
                         </td>
                     </tr>
                 </ItemTemplate>

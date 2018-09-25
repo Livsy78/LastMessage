@@ -9,11 +9,20 @@ namespace LastMessage
 {
     public partial class EditMessage : BasePage
     {
+        public int CurrentMessageID
+        {
+            get
+            {
+                return int.Parse(Request.QueryString["ID"]);
+            }
+            set{}
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             try
             {
-                DB.Message message = DB.Message.Get(int.Parse(Request.QueryString["ID"]));
+                DB.Message message = DB.Message.Get(CurrentMessageID);
 
                 // at 1st check the message belongs to CurrentUserID
                 if(message.UserID != CurrentUserID)
@@ -77,6 +86,21 @@ namespace LastMessage
             Response.Redirect("Home.aspx");
         }
 
+        protected void rptRecipientList_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            if (e.CommandName == "delete")
+            {
+                int recipientID = int.Parse(e.CommandArgument.ToString());
+
+                DB.Recipient recipient = DB.Recipient.Get(recipientID);
+                if(recipient != null)
+                {
+                    recipient.Delete();
+                }
+
+                UpdateRecipientList(CurrentMessageID);
+            }
+        }
 
     }
 }
