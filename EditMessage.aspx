@@ -68,7 +68,7 @@
                             </a>
                         </td>
                         <td style="width:25px;">
-                            <img class="cursor-pointer mr-1" src="img/remove25x25.png"/>
+                            <img class="cursor-pointer mr-1" src="img/delete25x25.png"/>
                         </td>
                     </tr>
                 </ItemTemplate>

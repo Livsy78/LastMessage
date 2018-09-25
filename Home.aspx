@@ -22,7 +22,7 @@
     <form id="ResetForm" style="text-align:center;" runat="server">
 
         <!--  <button type="submit" class="btn btn-lg plt-1 pltbg-3 btn-block btn-shdw pt-3 pb-3 mb-3">I'm OK<br/>Reset all timers</button>  -->
-        <asp:ImageButton ID="btnResetTimers" runat="server" ImageUrl="img/ResetButton.png" CssClass="btn btn-lg plt-1 pltbg-3 btn-shdw pt-3 pb-3 mb-4" OnClick="btnResetTimers_Click" />		
+        <asp:ImageButton ID="btnResetTimers" runat="server" ImageUrl="img/ResetButton.png" CssClass="btn btn-lg plt-1 pltbg-3 btn-shdw pt-3 pb-3 mb-4" OnClick="btnResetTimers_Click" />
         
 
         <h5>There will be send:</h5>
@@ -39,7 +39,7 @@
                 <td class="Message_Recipients" style="width:25%;">
                     Recipient1, 
                     <br/>
-                    Recipient123,
+                    Recipient2,
                     <br/>
                     Recipient3
                 </td>
@@ -55,7 +55,9 @@
                     </a>
                 </td>
                 <td style="width:25px;">
-                    <img class="cursor-pointer mr-1" src="img/remove25x25.png"/>
+                    <a class="Message_DeleteLink" href="#" onclick="return confirm('Are you sure you want to delete this message?');">
+                        <img class="cursor-pointer mr-1" src="img/delete25x25.png"/>
+                    </a>
                 </td>
             </tr>
 
@@ -78,7 +80,7 @@
                 <td style="width:25px;">
                 </td>
                 <td style="width:25px;">
-                        <img class="cursor-pointer mt-2 mr-1" src="img/add25x25.png"/>
+                    <img class="cursor-pointer mt-2 mr-1" src="img/add25x25.png"/>
                 </td>
             </tr>
         </table>
@@ -146,6 +148,10 @@
 
                     messageElem.find(".Message_EditLink")
                         .attr("href", "EditMessage.aspx?ID=" + msg.MessageID);
+
+                    messageElem.find(".Message_DeleteLink")
+                        .attr("href", "DeleteMessage.aspx?ID=" + msg.MessageID)
+                        ;
 
                     messageElem.show();
                 }

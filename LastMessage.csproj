@@ -61,6 +61,7 @@
   <ItemGroup>
     <Content Include="css\common.css" />
     <Content Include="default.aspx" />
+    <Content Include="DeleteMessage.aspx" />
     <Content Include="EditMessage.aspx" />
     <Content Include="EditRecipient.aspx" />
     <Content Include="Home.aspx" />
@@ -79,7 +80,7 @@
     <Content Include="img\palette\palette.png" />
     <Content Include="img\palette\palette.url.txt" />
     <Content Include="img\pointer-finger.png" />
-    <Content Include="img\remove25x25.png" />
+    <Content Include="img\delete25x25.png" />
     <Content Include="img\ResetButton.png" />
     <Content Include="js\FormatTime.js" />
     <Content Include="libs\bootstrap\.babelrc.js" />
@@ -297,6 +298,7 @@
     <Content Include="Register.aspx" />
     <Content Include="TestPage.aspx" />
     <Content Include="Web.config" />
+    <Content Include="WebServices\DeleteMessage.aspx" />
     <Content Include="WebServices\GetMessageList.aspx" />
     <Content Include="WebServices\GetRecipientList.aspx" />
     <Content Include="WebServices\Login.aspx" />
@@ -324,6 +326,13 @@
     </Compile>
     <Compile Include="default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteMessage.aspx.cs">
+      <DependentUpon>DeleteMessage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DeleteMessage.aspx.designer.cs">
+      <DependentUpon>DeleteMessage.aspx</DependentUpon>
     </Compile>
     <Compile Include="EditMessage.aspx.cs">
       <DependentUpon>EditMessage.aspx</DependentUpon>
@@ -411,6 +420,13 @@
     <Compile Include="Tools\Email.cs" />
     <Compile Include="WebServices\BaseTemplate.cs">
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebServices\DeleteMessage.aspx.cs">
+      <DependentUpon>DeleteMessage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebServices\DeleteMessage.aspx.designer.cs">
+      <DependentUpon>DeleteMessage.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebServices\GetMessageList.aspx.cs">
       <DependentUpon>GetMessageList.aspx</DependentUpon>
