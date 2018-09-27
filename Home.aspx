@@ -62,28 +62,17 @@
             </tr>
 
             <tr id="MessageList_LastRow">
-                <td style="width:25%;">
-                    &nbsp;
-                </td>
-                <td>
-                    &nbsp;
-                </td>
-                <td style="line-height:18px; width:25%;">
-                    &nbsp;
-                </td>
-                <td>
-                    &nbsp;
-                </td>
-                <td style="width:25%;">
-                    &nbsp;
-                </td>
-                <td style="width:25px;">
-                </td>
-                <td style="width:25px;">
-                    <img class="cursor-pointer mt-2 mr-1" src="img/add25x25.png"/>
-                </td>
             </tr>
         </table>
+
+        <div style="width:100%; height:25px; text-align:right; font-size:14px;" class="mt-2">
+            <a href="EditMessage.aspx?ID=-1">
+                <span class="mr-1 plt-3">
+                    Click here to add new message
+                </span>
+                <img class="cursor-pointer" style="margin:0px 6px 0px 0px;" src="img/add25x25.png"/>
+            </a>
+        </div>
 
         <script>
             window.onload = function()

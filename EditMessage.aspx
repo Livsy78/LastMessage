@@ -79,21 +79,23 @@
                     </tr>
                 </ItemTemplate>
             </asp:Repeater>
-
-            <tr>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                    <a href="EditRecipient.aspx?ID=-1&MessageID=<%= CurrentMessageID %>">
-                        <img class="cursor-pointer mt-2 mr-1" src="img/add25x25.png"/>
-                    </a>
-                </td>
-            </tr>
         </table>
+
+        
+        <div style="width:100%; display:<%= MessageID>=0 ? "none" : "block" %>" class="mt-1">
+            Please save the message in order to add recipient
+        </div>
+        
+        
+        <div style="width:100%; height:25px; text-align:right; font-size:14px; display:<%= MessageID>=0 ? "block" : "none" %>" class="mt-2">
+            <a href="EditRecipient.aspx?ID=-1&MessageID=<%= MessageID %>">
+                <span class="mr-1 plt-3">
+                    Click here to add new recipient
+                </span>
+                <img class="cursor-pointer" style="margin:0px 2px 0px 0px;" src="img/add25x25.png"/>
+            </a>
+        </div>
+
 
 
         <br/>

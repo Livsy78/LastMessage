@@ -34,6 +34,7 @@ namespace LastMessage.DB
         ADMIN,
         VIP,
         ACTIVE,
+        PREMIUM,
         DISABLED,
     }
 

@@ -9,7 +9,7 @@ namespace LastMessage
 {
     public partial class EditMessage : BasePage
     {
-        public int CurrentMessageID
+        public int MessageID
         {
             get
             {
@@ -20,31 +20,36 @@ namespace LastMessage
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            try
+            if(!IsPostBack)
             {
-                DB.Message message = DB.Message.Get(CurrentMessageID);
-
-                // at 1st check the message belongs to CurrentUserID
-                if(message.UserID != CurrentUserID)
+                try
                 {
-                    throw new Exception();
-                }
+                    if(MessageID >= 0)
+                    {
+                        DB.Message message = DB.Message.Get(MessageID);
 
-                if(!IsPostBack)
+                        // at 1st check the message belongs to CurrentUserID
+                        if(message.UserID != CurrentUserID)
+                        {
+                            throw new Exception();
+                        }
+                        
+                        editTitle.Text = message.Title;
+                        editMessage.Text = message.Text;
+                        ddlSendIn.SelectedValue = message.SendIn_Hours.ToString();
+                        ddlNotifyBefore.SelectedValue = message.NotifyBefore_Hours.ToString();
+
+                        UpdateRecipientList(message.ID);
+
+                    }
+                }
+                catch
                 {
-                    editTitle.Text = message.Title;
-                    editMessage.Text = message.Text;
-                    ddlSendIn.SelectedValue = message.SendIn_Hours.ToString();
-                    ddlNotifyBefore.SelectedValue = message.NotifyBefore_Hours.ToString();
-
-                    UpdateRecipientList(message.ID);
+                    Response.Redirect(".");
                 }
+                
+            }
 
-            }
-            catch
-            {
-                Response.Redirect("Home.aspx");
-            }
         }
 
 
@@ -66,7 +71,21 @@ namespace LastMessage
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            DB.Message message = DB.Message.Get(int.Parse(Request.QueryString["ID"]));
+            DB.Message message = null;
+            
+            if(MessageID >= 0)
+            {
+                message = DB.Message.Get(MessageID);
+            }
+            else
+            {
+                message = new DB.Message()
+                {
+                    ID = -1,
+                    Status = DB.MessageStatus.ACTIVE,
+                    UserID = CurrentUserID,
+                };
+            }
 
             message.Title = editTitle.Text;
             message.Text = editMessage.Text;
@@ -76,7 +95,7 @@ namespace LastMessage
             // reset timer // TODO? RESET ALL ?????
             message.SendTime = DateTime.Now.AddHours(message.SendIn_Hours);
 
-            message.Save();
+            message = message.Save();
 
             Response.Redirect("Home.aspx");
         }
@@ -93,7 +112,7 @@ namespace LastMessage
                     recipient.Delete();
                 }
 
-                UpdateRecipientList(CurrentMessageID);
+                UpdateRecipientList(MessageID);
             }
         }
 
