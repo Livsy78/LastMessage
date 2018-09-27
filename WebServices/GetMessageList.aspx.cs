@@ -26,7 +26,7 @@ namespace LastMessage.WebServices
                 {
                     if(!string.IsNullOrEmpty(recipients))
                     {
-                        recipients += ",";
+                        recipients += ", ";
                     }
                     recipients += recipient.Name;
                 }

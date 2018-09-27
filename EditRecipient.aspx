@@ -14,19 +14,20 @@
 
   <div style="">
 
-    <form id="EditRecipientForm" style="text-align:center;" runat="server">
+    <form id="EditRecipientForm" style="text-align:center;" runat="server" defaultbutton="btnSave" defaultfocus="editName">
 
-        <h5>Recipient for message &laquo;<span id="MessageTitle"><%= CurrentMessage.Title %></span>&raquo; :</h5>
+        <div class="mywidth-inner" style="position:fixed; top:32px;">
+            <input id="btnBack" type="button" value="&nbsp;&nbsp;&nbsp;Back" class="btn plt-1 pltbg-3 btn-shdw btn-back" onclick="window.location.href='EditMessage.aspx?ID=<%= CurrentMessageID %>';" />
+            <asp:Button ID="btnSave" runat="server" Text="&nbsp;&nbsp;&nbsp;Save" CssClass="btn plt-1 pltbg-3 btn-shdw btn-save" OnClick="btnSave_Click"/>
+        </div>
+
+
+        <h5>Recipient for <br/> &laquo;<span id="MessageTitle"><%= CurrentMessage.Title %></span>&raquo; :</h5>
         <div style="height:15px;"></div>
 
-        <input type="text" id="editName" class="form-control mb-3" placeholder="Name" required autofocus />
+        <asp:TextBox ID="editName" runat="server" CssClass="form-control mb-3" placeholder="Name" required autofocus></asp:TextBox>
 
-        <input type="email" id="editEmail" class="form-control mb-3" placeholder="Email address" required />
-
-        <button type="submit" class="btn btn-lg plt-1 pltbg-3 btn-block btn-shdw mb-3">Ok</button>
- 
-        <button type="button" class="btn btn-lg plt-1 pltbg-3 btn-block btn-shdw mb-3">Cancel</button>
-
+        <asp:TextBox ID="editEmail" TextMode="Email" runat="server" CssClass="form-control mb-3"  placeholder="Email address" required ></asp:TextBox>
 
     </form>
 

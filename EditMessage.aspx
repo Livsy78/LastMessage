@@ -19,7 +19,7 @@
     <form id="EditMessageForm" style="text-align:center;" runat="server" defaultbutton="btnSave">
 
         <div class="mywidth-inner" style="position:fixed; top:32px;">
-            <asp:Button ID="btnBack" runat="server" Text="&nbsp;&nbsp;&nbsp;Back" CssClass="btn plt-1 pltbg-3 btn-shdw btn-back" OnClick="btnBack_Click"/>
+            <input id="btnBack" type="button" value="&nbsp;&nbsp;&nbsp;Back" class="btn plt-1 pltbg-3 btn-shdw btn-back" onclick="window.location.href='Home.aspx';" />
             <asp:Button ID="btnSave" runat="server" Text="&nbsp;&nbsp;&nbsp;Save" CssClass="btn plt-1 pltbg-3 btn-shdw btn-save" OnClick="btnSave_Click"/>
         </div>
         <div style=""> </div>
@@ -72,7 +72,7 @@
                                 ImageUrl="~/img/delete25x25.png" 
                                 CommandName="delete" 
                                 CommandArgument='<%# Eval("RecipientID") %>' 
-                                OnClientClick="javascript:return confirm('Are you sure you want to delete this recipient?');"
+                                OnClientClick="javascript: return confirm('Are you sure you want to delete this recipient?');"
                             />
 
                         </td>
@@ -88,7 +88,9 @@
                 <td>
                 </td>
                 <td>
-                    <img class="cursor-pointer mt-2 mr-1" src="img/add25x25.png"/>
+                    <a href="EditRecipient.aspx?ID=-1&MessageID=<%= CurrentMessageID %>">
+                        <img class="cursor-pointer mt-2 mr-1" src="img/add25x25.png"/>
+                    </a>
                 </td>
             </tr>
         </table>
