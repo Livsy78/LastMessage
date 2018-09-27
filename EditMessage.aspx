@@ -82,7 +82,7 @@
         </table>
 
         
-        <div style="width:100%; display:<%= MessageID>=0 ? "none" : "block" %>" class="mt-1">
+        <div style="width:100%; background-color:#FCF8E3; padding:2px 0px 4px 0px; border:1px dashed #FFC107; display:<%= MessageID>=0 ? "none" : "block" %>;" class="mt-1">
             Please save the message in order to add recipient
         </div>
         

@@ -97,7 +97,15 @@ namespace LastMessage
 
             message = message.Save();
 
-            Response.Redirect("Home.aspx");
+            if(MessageID >= 0)
+            {
+                Response.Redirect("Home.aspx");
+            }
+            else
+            {
+                Response.Redirect("EditMessage.aspx?ID=" + message.ID.ToString() ); // let user to not leave the new message and to add recipients
+            }
+
         }
 
         protected void rptRecipientList_ItemCommand(object source, RepeaterCommandEventArgs e)
