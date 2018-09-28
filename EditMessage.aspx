@@ -50,24 +50,29 @@
 
         <h5>Send To:</h5>
             
-        <table id="RecipientList" style="width:100%; line-height:18px;" class="mt-3">
+        <table id="RecipientList" style="width:100%; line-height:18px; table-layout:fixed;" class="mt-0">
             <asp:Repeater ID="rptRecipientList" runat="server" OnItemCommand="rptRecipientList_ItemCommand">
                  <ItemTemplate>
                     <tr style="border-bottom:solid; border-bottom-color:#b6bbcc; border-bottom-width:1px;">
-                        <td>
+                        <td style="width:50%;">
                             <a href="EditRecipient.aspx?ID=<%# Eval("RecipientID") %>" class="plt-3">
                                 <%# Eval("Name") %>
                             </a>
                         </td>
-                        <td style="text-align:left;">
-                            <%# Eval("Destinations") %>
+                        <td style="width:100%; text-align:left; ">
+                            <div style="overflow:hidden; position: relative; "> <!-- text-overflow: ellipsis; -->
+                                <%# Eval("Destinations") %>
+                            <div>
+                            <!-- WARNING: hard-coded pallette gradient colors... :( TODO HOW? -->
+                            <!-- http://htmlbook.ru/blog/obrezaem-dlinnuyu-stro -->
+                            <div style="position: absolute; top:0; right:0; width:20px; height:100%; background: linear-gradient(to right, rgba(239,239,239, 0.2), rgba(239,239,239, 1) 100%);"></div>
                         </td>
-                        <td style="width:25px;">
+                        <td style="width:30px; padding:0px 0px 0px 2px;">
                             <a href="EditRecipient.aspx?ID=<%# Eval("RecipientID") %>">
                                 <img class="cursor-pointer mr-1" src="img/edit25x25.png"/>
                             </a>
                         </td>
-                        <td style="width:25px;">
+                        <td style="width:30px; padding:0px 0px 0px 2px;">
                             <asp:ImageButton ID="btnDeleteRecipient" runat="server"  
                                 ImageUrl="~/img/delete25x25.png" 
                                 CommandName="delete" 
