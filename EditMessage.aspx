@@ -22,8 +22,6 @@
             <input id="btnBack" type="button" value="&nbsp;&nbsp;&nbsp;Back" class="btn plt-1 pltbg-3 btn-shdw btn-back" onclick="window.location.href='Home.aspx';" />
             <asp:Button ID="btnSave" runat="server" Text="&nbsp;&nbsp;&nbsp;Save" CssClass="btn plt-1 pltbg-3 btn-shdw btn-save" OnClick="btnSave_Click"/>
         </div>
-        <div style=""> </div>
-
 
         <h5>Message:</h5>
 
@@ -65,7 +63,7 @@
                             <div>
                             <!-- WARNING: hard-coded pallette gradient colors... :( TODO HOW? -->
                             <!-- http://htmlbook.ru/blog/obrezaem-dlinnuyu-stro -->
-                            <div style="position: absolute; top:0; right:0; width:20px; height:100%; background: linear-gradient(to right, rgba(239,239,239, 0.2), rgba(239,239,239, 1) 100%);"></div>
+                            <div style="position: absolute; top:0; right:0; width:15px; height:100%; background: linear-gradient(to right, rgba(239,239,239, 0.2), rgba(239,239,239, 1) 100%);"></div>
                         </td>
                         <td style="width:30px; padding:0px 0px 0px 2px;">
                             <a href="EditRecipient.aspx?ID=<%# Eval("RecipientID") %>">

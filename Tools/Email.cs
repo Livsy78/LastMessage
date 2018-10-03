@@ -37,7 +37,7 @@ namespace LastMessage.Tools
             int smtpPort = int.Parse( ConfigurationManager.AppSettings[email.ConfigKeyPrefix + ".SmtpPort"] );
             bool smtpEnableSsl = bool.Parse( ConfigurationManager.AppSettings[email.ConfigKeyPrefix + ".SmtpEnableSsl"] );
 
-            MailAddress from = new MailAddress(smtpLogin, email.From);
+            MailAddress from = new MailAddress(email.From); // (smtpLogin, email.From);
             
             string[] tos = email.To.Split(',');
             MailAddress to = new MailAddress(tos[0].Trim());
@@ -57,7 +57,7 @@ namespace LastMessage.Tools
 
             smtpClient.EnableSsl = smtpEnableSsl;
 
-            smtpClient.UseDefaultCredentials = true;
+            smtpClient.UseDefaultCredentials = false;
             smtpClient.Credentials = new NetworkCredential(smtpLogin, smtpPassword);
     
             smtpClient.Send(message);

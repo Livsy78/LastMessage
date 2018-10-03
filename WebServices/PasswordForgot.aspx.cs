@@ -36,22 +36,24 @@ namespace LastMessage.WebServices
                 // send email
                 try
                 {
-                    
+
                     string emailTemplate = File.ReadAllText(Server.MapPath("~/WebServices/PasswordForgot.EmailTemplate"));
 
-                    // string link = "http://" /*TODO: SSL?? NO, auto-forced for this page //https:// */ + Request.Url.Host + "/PasswordReset.aspx?token="+token.ToString();
-                    string link = Request.Url.Host + "/PasswordReset.aspx?token="+token.ToString();
-                    string body = string.Format(emailTemplate, user.Name, link, link, expireMinutes, Request.Url.Host);
+                    //string link = HttpContext.Current.Request.ServerVariables["SERVER_NAME"] + "/PasswordReset.aspx?token="+token.ToString();
+                    string link = HttpContext.Current.Request.Url.Host + "/PasswordReset.aspx?token="+token.ToString();
+
+                    string body = string.Format(emailTemplate, user.Name, link, link, expireMinutes, HttpContext.Current.Request.Url.Host);
 
 
                     Tools.Email.Send(new Tools.Email()  //"support", user.Email, "password recovery", body, "Support");
-                    {
-                        To = user.Email,
-                        From = "noreply@lastmessage.in",
-                        Subject = "[LastMessage.in] Password reset",
-                        Body = body,
-                        ConfigKeyPrefix = "NoReply",
-                    });
+                        {
+                            To = user.Email,
+                            From = "notify@lastmessage.in",
+                            Subject = "[LastMessage.in] Password reset",
+                            Body = body,
+                            ConfigKeyPrefix = "Notify",
+                        }
+                    );
 
                 }
                 catch(Exception ex)

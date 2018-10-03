@@ -62,6 +62,7 @@
     <Content Include="css\common.css" />
     <Content Include="default.aspx" />
     <Content Include="DeleteMessage.aspx" />
+    <Content Include="EditAccount.aspx" />
     <Content Include="EditMessage.aspx" />
     <Content Include="EditRecipient.aspx" />
     <Content Include="Home.aspx" />
@@ -333,6 +334,13 @@
     </Compile>
     <Compile Include="DeleteMessage.aspx.designer.cs">
       <DependentUpon>DeleteMessage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditAccount.aspx.cs">
+      <DependentUpon>EditAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditAccount.aspx.designer.cs">
+      <DependentUpon>EditAccount.aspx</DependentUpon>
     </Compile>
     <Compile Include="EditMessage.aspx.cs">
       <DependentUpon>EditMessage.aspx</DependentUpon>
