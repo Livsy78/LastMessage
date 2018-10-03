@@ -50,11 +50,12 @@ namespace LastMessage.WebServices
 
                 
                 DB.Log.Add(new DB.Log()
-                {
-                    UserID = user.ID,
-                    Type = DB.LogType.REGISTER_USER,
-                    Text = user.Email
-                });
+                    {
+                        UserID = user.ID,
+                        Type = DB.LogType.REGISTER_USER,
+                        Text = user.Email
+                    }
+                );
             }
 
             return output;

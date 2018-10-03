@@ -65,6 +65,7 @@
     <Content Include="EditAccount.aspx" />
     <Content Include="EditMessage.aspx" />
     <Content Include="EditRecipient.aspx" />
+    <Content Include="Feedback.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="img\add25x25.png" />
     <Content Include="img\back25x25.png" />
@@ -355,6 +356,13 @@
     </Compile>
     <Compile Include="EditRecipient.aspx.designer.cs">
       <DependentUpon>EditRecipient.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Feedback.aspx.cs">
+      <DependentUpon>Feedback.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Feedback.aspx.designer.cs">
+      <DependentUpon>Feedback.aspx</DependentUpon>
     </Compile>
     <Compile Include="HeaderFooter.Master.cs">
       <DependentUpon>HeaderFooter.Master</DependentUpon>

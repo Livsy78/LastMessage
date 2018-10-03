@@ -73,7 +73,7 @@
     <!-- FOOTER START -->
         <div class="pltbg-0" style="margin:auto; height:30px;   display:flex; justify-content:space-evenly;">
             <a href="#" class="navbar-link plt-1"> About me </a>
-            <a href="#" class="navbar-link plt-1"> Contact me </a>
+            <a href="Feedback.aspx" class="navbar-link plt-1"> Contact me </a>
             <a href="#" class="navbar-link plt-1"> Privacy policy </a>
             <a href="#" class="navbar-link plt-1"> Terms of use </a>
         </div>

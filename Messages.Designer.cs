@@ -61,6 +61,15 @@ namespace LastMessage {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Thank you for feedback.
+        /// </summary>
+        internal static string FeedbackSent {
+            get {
+                return ResourceManager.GetString("FeedbackSent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error! Contact admin.
         /// </summary>
         internal static string PageError {

@@ -18,7 +18,7 @@ namespace LastMessage.DB
         public int UserID { get; set; }
 
         [Column(IsPrimaryKey = false, CanBeNull = false, DbType = "datetime", IsDbGenerated = false)]
-        private DateTime Time { get; set; }
+        public DateTime Time { get; set; }
 
 
         // fill manually
@@ -65,6 +65,7 @@ namespace LastMessage.DB
         REGISTER_USER,
         SAVE_MESSAGE,
         SEND_MESSAGE,
+        FEEDBACK
 
     }
 
