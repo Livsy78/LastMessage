@@ -21,7 +21,8 @@
         <h5>My account:</h5>
         
         <asp:TextBox ID="editEmail" CssClass="form-control mb-1" runat="server" TextMode="Email" placeholder="Email address" required ></asp:TextBox>
-        <asp:TextBox ID="editName" CssClass="form-control mb-1" runat="server" placeholder="Name" required ></asp:TextBox>
+        <asp:TextBox ID="editName" CssClass="form-control mb-3" runat="server" placeholder="Name" required ></asp:TextBox>
+
         <asp:TextBox ID="editPassword" CssClass="form-control mb-1" runat="server" TextMode="Password" placeholder="New password" ></asp:TextBox>
         <asp:TextBox ID="editPasswordConfirm" CssClass="form-control mb-1" runat="server" TextMode="Password" placeholder="Confirm New password" ></asp:TextBox>
 
