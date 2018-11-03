@@ -8,8 +8,27 @@
 <asp:Content ID="Content1" runat="server" ContentPlaceHolderID="ContentPlaceHolder">
 
     <div style=""> <!-- TODO: BACKGROUND MILITARY IMAGE IN THEME COLOR; SHADOWED FONT -->
-        <h5> Getting RISK on your life? This service is for you!</h5>
-        <b>How it works:</b>
+
+        <div style="width:100%; text-align:center;" >
+            <i>
+                No one knows what will happen to him
+            </i>
+        </div>
+        <div style="width:100%; text-align:center; padding:0px 0px 0px 50%;" >
+            <i>
+                tomorrow
+            </i>
+        </div>
+
+
+        <div style="width:100%; text-align:center;" class="mb-3">
+            <i>
+                Leave the message - just in case
+            </i>
+        </div>
+
+
+        HOW IT WORKS:
         <table>
             <tr>
                 <td style="width:16px; vertical-align:top;">
@@ -32,9 +51,9 @@
                     <img src="img/dot.png"/>
                 </td>
                 <td>
-                    <b>Get the risk on your life.</b>
+                    Get the risk on your life.
                     <br/>
-                    If something will happen with you <i>(oh no God!)</i> and you will NOT be able to reset timers, the messages will be send to the specified recipients when timeout will expire.
+                    If something will happen with you <i>(oh no, God!)</i> and you will NOT be able to reset timers, the messages will be send to the specified recipients when timeout will expire.
                 </td>
             </tr>
             <tr>
@@ -52,7 +71,6 @@
 
 
     <form id="RegisterForm" style="text-align:center;" runat="server" defaultbutton="btnRegister">
-        <b style="text-align:left;">It's really easy and it works!</b>
         <h5 class="mt-3">Sign Up</h5>
         <asp:TextBox ID="editEmail" CssClass="form-control mb-1" runat="server" TextMode="Email" placeholder="Email address" required ></asp:TextBox>
         <asp:TextBox ID="editName" CssClass="form-control mb-1" runat="server" placeholder="Name" required ></asp:TextBox>

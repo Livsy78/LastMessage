@@ -36,7 +36,7 @@ namespace LastMessage
         {
             Exception ex = Server.GetLastError();
 
-            //lblMessage.Text = ex.Message;  // page will no be generated...
+            //lblMessage.Text = ex.Message;  // page will not be generated...
             //lblMessage.Visible = true;
 
             Server.ClearError();

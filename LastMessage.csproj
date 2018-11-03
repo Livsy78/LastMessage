@@ -299,7 +299,9 @@
     <Content Include="PasswordReset.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="TestPage.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="WebServices\DeleteMessage.aspx" />
     <Content Include="WebServices\GetMessageList.aspx" />
     <Content Include="WebServices\GetRecipientList.aspx" />

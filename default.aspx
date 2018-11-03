@@ -10,6 +10,7 @@
   <div style="">
 
         <div style=""> <!-- TODO: BACKGROUND MILITARY IMAGE IN THEME COLOR; SHADOWED FONT -->
+           
             <h5> Getting RISK on your life? This service is for you!</h5>
             <b>How it works:</b>
             <table>
@@ -34,7 +35,7 @@
                         <img src="img/dot.png"/>
                     </td>
                     <td>
-                        <b>Get the risk on your life.</b>
+                        Get the risk on your life.
                         <br/>
                         If something will happen with you <i>(oh no God!)</i> and you will NOT be able to reset timers, the messages will be send to the specified recipients when timeout will expire.
                     </td>

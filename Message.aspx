@@ -17,7 +17,7 @@
 
             <br/><br/>
         
-            <h5> <asp:HyperLink ID="linkContinue" runat="server" NavigateUrl=".">Click here to continue</asp:HyperLink> </h5>
+            <h5> <asp:HyperLink ID="linkContinue" runat="server" CssClass="plt-3" NavigateUrl=".">Click here to continue</asp:HyperLink> </h5>
             
             <br/><br/>
 

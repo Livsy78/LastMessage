@@ -16,13 +16,14 @@ namespace LastMessage
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            DB.Log[] currentUserRecords = DB.Log.GetAllByFieldValue<int>("UserID", CurrentUserID);
-
             // no more than 3 message per user per day...
+            DB.Log[] currentUserRecords = DB.Log.GetAllByFieldValue<int>("UserID", CurrentUserID);
             DB.Log[] lastDayLogs = currentUserRecords.Where(r=> r.Time > DateTime.Now.AddDays(-1)).ToArray();
             if(lastDayLogs.Count() >= 3)
             {
-                lblMessage.Text = "Max 3 reports per day";
+                // Response.Redirect("Message.aspx?ID=FeedbackMaxReached"); 
+
+                lblMessage.Text = "Max 3 reports per day";  // "Max of reports per day has been reached"
                 lblMessage.Visible = true;
                 return;
             }

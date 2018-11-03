@@ -164,7 +164,7 @@ namespace LastMessage.DB
             }
 
 
-            return (T)this;
+            return (T)this;     // return with actual ID
         }
 
         public void Delete()
