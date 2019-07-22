@@ -298,6 +298,7 @@
     <Content Include="PasswordForgot.aspx" />
     <Content Include="PasswordReset.aspx" />
     <Content Include="Register.aspx" />
+    <Content Include="TestEmail.aspx" />
     <Content Include="TestPage.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -427,6 +428,13 @@
     </Compile>
     <Compile Include="Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestEmail.aspx.cs">
+      <DependentUpon>TestEmail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestEmail.aspx.designer.cs">
+      <DependentUpon>TestEmail.aspx</DependentUpon>
     </Compile>
     <Compile Include="TestPage.aspx.cs">
       <DependentUpon>TestPage.aspx</DependentUpon>

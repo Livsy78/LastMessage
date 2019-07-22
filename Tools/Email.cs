@@ -24,9 +24,6 @@ namespace LastMessage.Tools
 
         public string ConfigKeyPrefix {get;set;}
 
-        // https://forums.iis.net/t/1157046.aspx
-        public SmtpDeliveryMethod DeliveryMethod = SmtpDeliveryMethod.Network;
-
         public void Send()
         {
             Send(this);
@@ -39,6 +36,10 @@ namespace LastMessage.Tools
             string smtpServer = ConfigurationManager.AppSettings[email.ConfigKeyPrefix + ".SmtpServer"];
             int smtpPort = int.Parse( ConfigurationManager.AppSettings[email.ConfigKeyPrefix + ".SmtpPort"] );
             bool smtpEnableSsl = bool.Parse( ConfigurationManager.AppSettings[email.ConfigKeyPrefix + ".SmtpEnableSsl"] );
+        
+            // https://forums.iis.net/t/1157046.aspx
+            SmtpDeliveryMethod smtpDeliveryMethod = (SmtpDeliveryMethod) Enum.Parse(typeof(SmtpDeliveryMethod), ConfigurationManager.AppSettings[email.ConfigKeyPrefix + ".DeliveryMethod"]);
+
 
             MailAddress from = new MailAddress(email.From); // (smtpLogin, email.From);
             
@@ -59,7 +60,7 @@ namespace LastMessage.Tools
             SmtpClient smtpClient = new SmtpClient(smtpServer, smtpPort);
 
             smtpClient.EnableSsl = smtpEnableSsl;
-            smtpClient.DeliveryMethod = email.DeliveryMethod;
+            smtpClient.DeliveryMethod = smtpDeliveryMethod;
 
             smtpClient.UseDefaultCredentials = false;
             if(!string.IsNullOrEmpty(smtpLogin))

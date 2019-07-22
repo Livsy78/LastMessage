@@ -24,8 +24,6 @@ namespace LastMessage
                 Body = editBody.Text,
 
                 ConfigKeyPrefix = "Notify",
-
-                DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.PickupDirectoryFromIis,
             };
 
             try
