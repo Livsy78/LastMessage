@@ -50,7 +50,7 @@ namespace LastMessage
                     {
                         DB.Recipient recipient = DB.Recipient.Get(RecipientID);
 
-                        if(CurrentUserID != CurrentMessage.UserID)
+                        if(CurrentUser.ID != CurrentMessage.UserID)
                         {
                             throw new Exception();
                         }

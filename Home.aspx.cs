@@ -22,7 +22,7 @@ namespace LastMessage
         {
             // had to set CausesValidation property to False to make it firing, wtf?...
 
-            DB.Message[] messages = DB.Message.GetAllByFieldValue<int>("UserID", CurrentUserID);
+            DB.Message[] messages = DB.Message.GetAllByFieldValue<int>("UserID", CurrentUser.ID);
 
             DateTime now = DateTime.Now;
             foreach(DB.Message message in messages)

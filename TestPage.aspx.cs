@@ -11,6 +11,31 @@ namespace LastMessage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            DB.User.GetByFieldValue("Email", "");
+        }
+
+        protected void btnSend_Click(object sender, EventArgs e)
+        {
+            Tools.Email email = new Tools.Email()
+            {
+                From = "noreply@lastmessage.in",
+                To = "albirukov@gmail.com",
+                Subject = editSubj.Text,
+                Body = editBody.Text,
+
+                ConfigKeyPrefix = "Notify",
+
+                DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.PickupDirectoryFromIis,
+            };
+
+            try
+            {
+                email.Send();
+            }
+            catch(Exception ex)
+            {
+                lblMessage.Text = ex.Message;
+            }
         }
     }
 

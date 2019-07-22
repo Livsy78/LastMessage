@@ -7,30 +7,17 @@ namespace LastMessage
 {
     public class BasePage : System.Web.UI.Page
     {
-        protected int CurrentUserID
+        protected DB.User CurrentUser
         {
             get
             {
                 return HttpContext.Current.User.Identity.IsAuthenticated ? 
-                    DB.User.GetByFieldValue("Email", HttpContext.Current.User.Identity.Name).ID
-                    : 
-                    -1;
-            }
-            set{}
-        }
-
-        protected string CurrentUserEmail
-        {
-            get
-            {
-                return HttpContext.Current.User.Identity.IsAuthenticated ? 
-                    HttpContext.Current.User.Identity.Name
+                    DB.User.GetByFieldValue("Email", HttpContext.Current.User.Identity.Name)
                     : 
                     null;
             }
             set{}
         }
-
 
         protected void Page_Error(object sender, EventArgs e)
         {

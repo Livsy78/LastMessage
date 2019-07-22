@@ -17,7 +17,7 @@ namespace LastMessage
         protected void btnSave_Click(object sender, EventArgs e)
         {
             // no more than 3 message per user per day...
-            DB.Log[] currentUserRecords = DB.Log.GetAllByFieldValue<int>("UserID", CurrentUserID);
+            DB.Log[] currentUserRecords = DB.Log.GetAllByFieldValue<int>("UserID", CurrentUser.ID);
             DB.Log[] lastDayLogs = currentUserRecords.Where(r=> r.Time > DateTime.Now.AddDays(-1)).ToArray();
             if(lastDayLogs.Count() >= 3)
             {
@@ -30,7 +30,7 @@ namespace LastMessage
 
             DB.Log.Add(new DB.Log()
                 {
-                    UserID = CurrentUserID,
+                    UserID = CurrentUser.ID,
                     Type = DB.LogType.FEEDBACK,
                     Text = "TITLE: " + editTitle.Text + " MESSAGE: " + editMessage.Text,
                 }

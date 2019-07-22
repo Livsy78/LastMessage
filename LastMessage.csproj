@@ -750,6 +750,7 @@
     </Content>
     <Content Include="connectionStrings.config" />
     <Content Include="img\ResetButton.pdn" />
+    <None Include="Properties\PublishProfiles\Local.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

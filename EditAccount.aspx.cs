@@ -15,7 +15,7 @@ namespace LastMessage
         {
             if(!IsPostBack)
             {
-                DB.User user = DB.User.Get(CurrentUserID);
+                DB.User user = DB.User.Get(CurrentUser.ID);
                 
                 editEmail.Text = user.Email;
                 editName.Text = user.Name;
@@ -25,7 +25,7 @@ namespace LastMessage
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            DB.User user = DB.User.Get(CurrentUserID);
+            DB.User user = DB.User.Get(CurrentUser.ID);
 
             if(user.Email != editEmail.Text)
             {

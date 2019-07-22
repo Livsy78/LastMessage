@@ -84,7 +84,7 @@
             {
                 var input =
                 {
-                    UserID : <%= CurrentUserID %>,
+                    UserID : <%= CurrentUser.ID %>,
                 };
 
                 // TODO: wait screen

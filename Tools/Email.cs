@@ -24,6 +24,9 @@ namespace LastMessage.Tools
 
         public string ConfigKeyPrefix {get;set;}
 
+        // https://forums.iis.net/t/1157046.aspx
+        public SmtpDeliveryMethod DeliveryMethod = SmtpDeliveryMethod.Network;
+
         public void Send()
         {
             Send(this);
@@ -56,9 +59,13 @@ namespace LastMessage.Tools
             SmtpClient smtpClient = new SmtpClient(smtpServer, smtpPort);
 
             smtpClient.EnableSsl = smtpEnableSsl;
+            smtpClient.DeliveryMethod = email.DeliveryMethod;
 
             smtpClient.UseDefaultCredentials = false;
-            smtpClient.Credentials = new NetworkCredential(smtpLogin, smtpPassword);
+            if(!string.IsNullOrEmpty(smtpLogin))
+            {
+                smtpClient.Credentials = new NetworkCredential(smtpLogin, smtpPassword);
+            }
     
             smtpClient.Send(message);
         }

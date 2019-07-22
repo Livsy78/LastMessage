@@ -29,7 +29,7 @@ namespace LastMessage
                         DB.Message message = DB.Message.Get(MessageID);
 
                         // at 1st check the message belongs to CurrentUserID
-                        if(message.UserID != CurrentUserID)
+                        if(message.UserID != CurrentUser.ID)
                         {
                             throw new Exception();
                         }
@@ -83,7 +83,7 @@ namespace LastMessage
                 {
                     ID = -1,
                     Status = DB.MessageStatus.ACTIVE,
-                    UserID = CurrentUserID,
+                    UserID = CurrentUser.ID,
                 };
             }
 
